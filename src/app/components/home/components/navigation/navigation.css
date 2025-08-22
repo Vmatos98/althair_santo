@@ -1,0 +1,26 @@
+/* Estilos para o menu mobile */
+#mobile-menu {
+    transition: all 0.3s ease;
+}
+
+/* Estilos para links de navegação */
+nav a {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #4B5563;
+}
+
+/* Estilos para botões pretos */
+a.bg-black {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+a.bg-black:hover {
+    background-color: #374151;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

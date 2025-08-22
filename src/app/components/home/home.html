@@ -1,1 +1,177 @@
-<p>home works!</p>
+<!-- Navigation Component -->
+<app-navigation
+  [isMobileMenuOpen]="isMobileMenuOpen"
+  (toggleMobileMenu)="toggleMobileMenu()"
+  (closeMobileMenu)="closeMobileMenu()">
+</app-navigation>
+
+<!-- Hero Component -->
+<app-hero></app-hero>
+
+<!-- Sobre Section -->
+<app-sobre-section (navegarParaSobre)="navegarParaSobre()"></app-sobre-section>
+
+<!-- Coleções Section -->
+<section id="colecoes" class="section min-h-screen flex items-center justify-center bg-gray-50/95 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-serif tracking-wider mb-4">Coleções</h2>
+        <div class="w-20 h-0.5 bg-black mx-auto mb-4"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-12">Descubra as últimas criações de Althair Santo, onde cada peça conta uma história única, combinando tradição e inovação.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="group relative overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=687&q=80" alt="Coleção Outono/Inverno" class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
+                </div>
+                <h3 class="text-xl font-serif mt-4 mb-2">Outono/Inverno</h3>
+                <p class="text-sm text-gray-600 px-4">Tons terrosos e texturas ricas que evocam aconchego e sofisticação.</p>
+            </div>
+            <div class="text-center">
+                <div class="group relative overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=687&q=80" alt="Coleção Primavera/Verão" class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
+                </div>
+                <h3 class="text-xl font-serif mt-4 mb-2">Primavera/Verão</h3>
+                <p class="text-sm text-gray-600 px-4">Leveza e fluidez em peças que celebram a energia e as cores da estação.</p>
+            </div>
+             <div class="text-center">
+                <div class="group relative overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?auto=format&fit=crop&w=1472&q=80" alt="Coleção Limitada" class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
+                </div>
+                <h3 class="text-xl font-serif mt-4 mb-2">Edição Limitada</h3>
+                <p class="text-sm text-gray-600 px-4">Criações exclusivas onde a Renda Irlandesa é a protagonista absoluta.</p>
+            </div>
+        </div>
+        <div class="mt-12">
+            <a href="#" class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300">Ver Todas as Coleções</a>
+        </div>
+    </div>
+</section>
+
+<!-- Artesãs Section -->
+<section id="artesas" class="section min-h-screen flex items-center justify-center bg-white/95 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-serif tracking-wider mb-6">Mãos que Trazem a Renda à Vida</h2>
+                <div class="w-20 h-0.5 bg-black mb-6"></div>
+                <p class="text-gray-600 mb-4">A Renda Irlandesa, patrimônio imaterial de Sergipe, é a alma de nossas criações. Cada peça é tecida à mão por artesãs talentosas de Divina Pastora, que carregam um saber ancestral de geração em geração, transformando fios em pura arte.</p>
+                <p class="text-gray-600 mb-8">Nossa parceria com a comunidade não apenas garante a autenticidade e a qualidade única de cada peça, mas também ajuda a preservar e a valorizar esta rica tradição cultural brasileira, garantindo que ela prospere para as futuras gerações.</p>
+                <a href="#" class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300">Conheça as Artesãs</a>
+            </div>
+             <div class="md:w-1/2">
+                <img src="assets/content/rendeira.jpeg" alt="Artesã tecendo renda" class="rounded-sm shadow-xl w-full h-auto">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="galeria" class="section min-h-screen flex items-center justify-center bg-gray-50/95 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-serif tracking-wider mb-4">Galeria</h2>
+        <div class="w-20 h-0.5 bg-black mx-auto mb-4"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-12">Explore os momentos marcantes e os detalhes das coleções de Althair Santo.</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=687&q=80" alt="Galeria 1" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
+            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=687&q=80" alt="Galeria 2" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
+            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?auto=format&fit=crop&w=1472&q=80" alt="Galeria 3" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
+            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2070&q=80" alt="Galeria 4" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
+            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=720&q=80" alt="Galeria 5" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
+            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&w=687&q=80" alt="Galeria 6" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
+            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=687&q=80" alt="Galeria 7" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
+            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=765&q=80" alt="Galeria 8" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
+        </div>
+         <div class="mt-12">
+            <a href="#" class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300">Ver Galeria Completa</a>
+        </div>
+    </div>
+</section>
+
+<!-- Videos Section -->
+<section id="videos" class="section min-h-screen flex items-center justify-center bg-white/95 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-serif tracking-wider mb-4">Moda em Movimento</h2>
+        <div class="w-20 h-0.5 bg-black mx-auto mb-4"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-12">Assista aos desfiles, bastidores e ao processo criativo por trás de cada peça. Uma imersão no universo da marca, onde cada detalhe é cuidadosamente planejado e executado.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="aspect-w-16 aspect-h-9 rounded-sm shadow-lg overflow-hidden">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Vídeo de moda - Desfile Althair Santo"></iframe>
+            </div>
+            <div class="aspect-w-16 aspect-h-9 rounded-sm shadow-lg overflow-hidden">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Vídeo de moda - Bastidores Althair Santo"></iframe>
+            </div>
+        </div>
+         <div class="mt-12">
+            <a href="#" class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300">Ver Mais Vídeos</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contato" class="section min-h-screen flex items-center justify-center bg-gray-50/95 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-serif tracking-wider mb-4">Contato</h2>
+            <div class="w-20 h-0.5 bg-black mx-auto mb-4"></div>
+            <p class="text-gray-600 max-w-2xl mx-auto">Para propostas de colaboração, imprensa ou informações sobre peças, entre em contato.</p>
+        </div>
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/3">
+                <h3 class="text-xl font-serif mb-4">Informações</h3>
+                 <div class="space-y-4 text-left">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt mt-1 text-black"></i>
+                        <div>
+                            <h4 class="font-bold">Ateliê</h4>
+                            <p class="text-gray-600 text-sm">Aracaju, Sergipe, Brasil</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start gap-3">
+                        <i class="fas fa-envelope mt-1 text-black"></i>
+                        <div>
+                            <h4 class="font-bold">Email</h4>
+                            <p class="text-gray-600 text-sm">contato@althairsanto.com</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start gap-3">
+                        <i class="fab fa-instagram mt-1 text-black"></i>
+                        <div>
+                            <h4 class="font-bold">Instagram</h4>
+                            <p class="text-sm text-gray-600">@altairsantoo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-2/3 bg-white/95 p-8 rounded-sm shadow-xl">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-black">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-black">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Assunto</label>
+                        <select id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-black">
+                            <option value="">Selecione o assunto</option>
+                            <option value="colaboracao">Proposta de Colaboração</option>
+                            <option value="imprensa">Imprensa / Mídia</option>
+                            <option value="info-pecas">Informações sobre Peças</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-black"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="w-full md:w-auto bg-black text-white px-10 py-3 rounded-sm hover:bg-gray-800 transition duration-300">Enviar Mensagem</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,62 @@
+<nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Desktop Menu -->
+        <div class="hidden md:grid grid-cols-3 h-20 items-center">
+            <!-- Left Menu -->
+            <div class="flex items-center space-x-7 justify-self-end">
+                <ng-container *ngFor="let item of menuItems.slice(0, 3)">
+                    <button (click)="smoothScrollTo(item.href)" class="text-gray-900 hover:text-gray-600 text-sm font-medium bg-transparent border-none cursor-pointer">{{ item.label }}</button>
+                </ng-container>
+            </div>
+
+            <!-- Logo (Center) -->
+            <div class="flex justify-center">
+                <button (click)="smoothScrollTo('#home')" class="text-2xl font-serif tracking-wider bg-transparent border-none cursor-pointer">ALTHAIR SANTO</button>
+            </div>
+
+            <!-- Right Menu -->
+            <div class="flex items-center space-x-7 justify-self-start">
+                <ng-container *ngFor="let item of menuItems.slice(3, 5)">
+                    <button (click)="smoothScrollTo(item.href)" class="text-gray-900 hover:text-gray-600 text-sm font-medium bg-transparent border-none cursor-pointer">{{ item.label }}</button>
+                </ng-container>
+                <button (click)="smoothScrollTo(menuItems[5].href)" class="bg-black text-white px-4 py-2 rounded-sm hover:bg-gray-800 transition duration-300 cursor-pointer">{{ menuItems[5].label }}</button>
+            </div>
+        </div>
+
+        <!-- Mobile Layout -->
+        <div class="md:hidden flex w-full justify-between items-center h-20">
+            <!-- Mobile menu button -->
+            <div>
+                <button type="button" (click)="onToggleMobileMenu()"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-900"
+                    aria-controls="mobile-menu"
+                    [attr.aria-expanded]="isMobileMenuOpen">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Logo (Center for Mobile) -->
+            <div>
+                <button (click)="smoothScrollTo('#home')" class="text-xl font-serif tracking-wider bg-transparent border-none cursor-pointer">ALTHAIR SANTO</button>
+            </div>
+            <!-- Spacer to keep logo centered -->
+            <div class="w-10"></div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden bg-white shadow-lg" [class.hidden]="!isMobileMenuOpen">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <button (click)="smoothScrollTo('#home'); onCloseMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-900 bg-transparent border-none cursor-pointer">Home</button>
+            <ng-container *ngFor="let item of menuItems">
+                <button (click)="smoothScrollTo(item.href); onCloseMobileMenu()"
+                   class="block w-full text-left px-3 py-2 text-base font-medium text-gray-900 bg-transparent border-none cursor-pointer"
+                   [class]="item.isButton ? 'mt-2 bg-black text-white rounded-sm text-center' : ''">
+                    {{ item.label }}
+                </button>
+            </ng-container>
+        </div>
+    </div>
+</nav>
