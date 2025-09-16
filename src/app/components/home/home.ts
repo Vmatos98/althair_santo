@@ -1,19 +1,17 @@
 import { Component, HostListener, Inject, PLATFORM_ID, Renderer2, ElementRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
-import { Navigation } from './components/navigation/navigation';
 import { Hero } from './components/hero/hero';
 import { SobreSection } from './components/sobre-section/sobre-section';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Navigation, Hero, SobreSection],
+  imports: [Hero, SobreSection],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home {
-  isMobileMenuOpen = false;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -24,14 +22,6 @@ export class Home {
 
   navegarParaSobre(): void {
     this.router.navigate(['/sobre']);
-  }
-
-  toggleMobileMenu(): void {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
-  }
-
-  closeMobileMenu(): void {
-    this.isMobileMenuOpen = false;
   }
 
   @HostListener('window:scroll', [])

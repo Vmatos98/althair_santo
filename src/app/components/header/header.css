@@ -1,0 +1,31 @@
+/* Estilos para o menu mobile */
+#mobile-menu {
+    transition: all 0.3s ease;
+}
+
+/* Estilos para links de navegação */
+nav button {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+nav button:hover {
+    color: #4B5563;
+}
+
+/* Estilos para botões pretos */
+button.bg-black {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button.bg-black:hover {
+    background-color: #374151;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para o logo */
+.font-serif {
+    font-family: Georgia, 'Times New Roman', serif;
+}
