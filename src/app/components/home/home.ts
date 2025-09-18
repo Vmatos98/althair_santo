@@ -3,11 +3,13 @@ import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { Hero } from './components/hero/hero';
 import { SobreSection } from './components/sobre-section/sobre-section';
+import { ColecoesSection } from './components/colecoes-section/colecoes-section';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, SobreSection],
+  imports: [Hero, SobreSection, ColecoesSection],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -22,6 +24,18 @@ export class Home {
 
   navegarParaSobre(): void {
     this.router.navigate(['/sobre']);
+  }
+
+  navegarParaColecoes(): void {
+    this.router.navigate(['/colecoes']);
+  }
+
+  navegarParaArtesas(): void {
+    this.router.navigate(['/artesas']);
+  }
+
+  navegarParaVideos(): void {
+    this.router.navigate(['/videos']);
   }
 
   @HostListener('window:scroll', [])
