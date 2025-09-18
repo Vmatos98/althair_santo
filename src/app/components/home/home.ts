@@ -24,6 +24,18 @@ export class Home {
     this.router.navigate(['/sobre']);
   }
 
+  navegarParaColecoes(): void {
+    this.router.navigate(['/colecoes']);
+  }
+
+  navegarParaArtesas(): void {
+    this.router.navigate(['/artesas']);
+  }
+
+  navegarParaVideos(): void {
+    this.router.navigate(['/videos']);
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     if (isPlatformBrowser(this.platformId)) {
