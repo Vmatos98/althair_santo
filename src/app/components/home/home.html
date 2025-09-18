@@ -5,39 +5,7 @@
 <app-sobre-section (navegarParaSobre)="navegarParaSobre()"></app-sobre-section>
 
 <!-- Coleções Section -->
-<section id="colecoes" class="section min-h-screen flex items-center justify-center bg-gray-50/95 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-serif tracking-wider mb-4">Coleções</h2>
-        <div class="w-20 h-0.5 bg-black mx-auto mb-4"></div>
-        <p class="text-gray-600 max-w-2xl mx-auto mb-12">Descubra as últimas criações de Althair Santo, onde cada peça conta uma história única, combinando tradição e inovação.</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="text-center">
-                <div class="group relative overflow-hidden rounded-sm">
-                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=687&q=80" alt="Coleção Outono/Inverno" class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
-                </div>
-                <h3 class="text-xl font-serif mt-4 mb-2">Outono/Inverno</h3>
-                <p class="text-sm text-gray-600 px-4">Tons terrosos e texturas ricas que evocam aconchego e sofisticação.</p>
-            </div>
-            <div class="text-center">
-                <div class="group relative overflow-hidden rounded-sm">
-                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=687&q=80" alt="Coleção Primavera/Verão" class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
-                </div>
-                <h3 class="text-xl font-serif mt-4 mb-2">Primavera/Verão</h3>
-                <p class="text-sm text-gray-600 px-4">Leveza e fluidez em peças que celebram a energia e as cores da estação.</p>
-            </div>
-             <div class="text-center">
-                <div class="group relative overflow-hidden rounded-sm">
-                    <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?auto=format&fit=crop&w=1472&q=80" alt="Coleção Limitada" class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
-                </div>
-                <h3 class="text-xl font-serif mt-4 mb-2">Edição Limitada</h3>
-                <p class="text-sm text-gray-600 px-4">Criações exclusivas onde a Renda Irlandesa é a protagonista absoluta.</p>
-            </div>
-        </div>
-        <div class="mt-12">
-            <button (click)="navegarParaColecoes()" class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300 cursor-pointer">Ver Todas as Coleções</button>
-        </div>
-    </div>
-</section>
+<app-colecoes-section (navegarParaColecoes)="navegarParaColecoes()"></app-colecoes-section>
 
 <!-- Artesãs Section -->
 <section id="artesas" class="section min-h-screen flex items-center justify-center bg-white/95 py-12">

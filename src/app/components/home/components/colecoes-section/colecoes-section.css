@@ -1,0 +1,32 @@
+/* Estilos para a seção sobre */
+.section {
+    scroll-margin-top: 80px;
+}
+
+/* Estilos específicos para o botão "Ler Biografia Completa" */
+button {
+    cursor: pointer !important;
+    transition: all 0.3s ease;
+    border: 1px solid black;
+    padding: 12px 32px;
+    background-color: transparent;
+    color: black;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background-color: black !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-color: black;
+}
+
+/* Garantir que o cursor seja pointer em todos os estados */
+button:active,
+button:focus {
+    cursor: pointer !important;
+    outline: none;
+}
