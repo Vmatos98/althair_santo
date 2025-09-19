@@ -26,26 +26,8 @@
 </section>
 
 <!-- Gallery Section -->
-<section id="galeria" class="section min-h-screen flex items-center justify-center bg-gray-50/95 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-serif tracking-wider mb-4">Galeria</h2>
-        <div class="w-20 h-0.5 bg-black mx-auto mb-4"></div>
-        <p class="text-gray-600 max-w-2xl mx-auto mb-12">Explore os momentos marcantes e os detalhes das coleções de Althair Santo.</p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=687&q=80" alt="Galeria 1" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
-            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=687&q=80" alt="Galeria 2" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
-            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?auto=format&fit=crop&w=1472&q=80" alt="Galeria 3" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
-            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2070&q=80" alt="Galeria 4" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
-            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=720&q=80" alt="Galeria 5" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
-            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&w=687&q=80" alt="Galeria 6" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
-            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=687&q=80" alt="Galeria 7" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
-            <div class="group overflow-hidden rounded-sm"><img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=765&q=80" alt="Galeria 8" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105"></div>
-        </div>
-         <div class="mt-12">
-            <a href="#" class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300">Ver Galeria Completa</a>
-        </div>
-    </div>
-</section>
+<app-galeria-section (navegarParaGaleria)="navegarParaGaleria()"></app-galeria-section>
+
 
 <!-- Videos Section -->
 <section id="videos" class="section min-h-screen flex items-center justify-center bg-white/95 py-12">

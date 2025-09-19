@@ -56,6 +56,7 @@ export class Header {
 
   navigateToHome(): void {
     this.router.navigate(['/']);
+    this.smoothScrollToSection('home');
     this.closeMobileMenu();
   }
 

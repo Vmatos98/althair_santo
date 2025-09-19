@@ -4,12 +4,14 @@ import { Router } from '@angular/router';
 import { Hero } from './components/hero/hero';
 import { SobreSection } from './components/sobre-section/sobre-section';
 import { ColecoesSection } from './components/colecoes-section/colecoes-section';
+import { GaleriaSection } from './components/galeria-section/galeria-section';
+
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, SobreSection, ColecoesSection],
+  imports: [Hero, SobreSection, ColecoesSection, GaleriaSection],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -32,6 +34,10 @@ export class Home {
 
   navegarParaArtesas(): void {
     this.router.navigate(['/artesas']);
+  }
+
+  navegarParaGaleria(): void {
+    this.router.navigate(['/galeria']);
   }
 
   navegarParaVideos(): void {
