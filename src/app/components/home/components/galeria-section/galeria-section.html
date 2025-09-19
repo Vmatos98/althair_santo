@@ -1,0 +1,24 @@
+<section id="galeria" class="section min-h-screen flex items-center justify-center bg-gray-50/95 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+    <h2 class="text-3xl md:text-4xl font-serif tracking-wider mb-4">{{ galeriaData.title }}</h2>
+    <div class="w-20 h-0.5 bg-black mx-auto mb-4"></div>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-12">{{ galeriaData.description }}</p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+      <div *ngFor="let image of galeriaData.features; let i = index" class="group overflow-hidden rounded-sm">
+        <img [src]="image.image" alt="'Galeria '{{i + 1}}"
+          class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+      </div>
+
+    </div>
+
+    <div class="mt-12">
+      <a href="#"
+        class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300">
+        Ver Galeria Completa
+      </a>
+    </div>
+  </div>
+</section>
