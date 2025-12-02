@@ -1,1 +1,52 @@
-<p>artesas works!</p>
+<div class="artesas-container">
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Page Title -->
+        <h1 class="page-title">Artesãs</h1>
+        <div class="title-underline"></div>
+
+        <!-- Video Section -->
+        <div class="video-section"></div>
+        <div class="video-wrapper">
+            <iframe [src]="getVideoUrl()" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen title="Renda Irlandesa - Divina Pastora">
+            </iframe>
+        </div>
+        <p class="video-description">
+            Você pode encontrar o vídeo na íntegra aqui:
+            <a [href]="estrutura.video.url + '&t=690s'" target="_blank" rel="noopener noreferrer" class="video-link">
+                Boas histórias - Divina Pastora.
+            </a>
+        </p>
+    </div>
+
+    <!-- Artesanato Section -->
+    <div class="content-section">
+        <h3 class="section-title">{{ estrutura.artesanato.titulo }}</h3>
+        <p class="section-text" *ngFor="let paragrafo of getParagrafos(estrutura.artesanato.texto)">
+            {{ paragrafo }}
+        </p>
+    </div>
+
+    <!-- Artesãs Section -->
+    <div class="content-section">
+        <h3 class="section-title">{{ estrutura.artesas.titulo }}</h3>
+        <p class="section-text" *ngFor="let paragrafo of getParagrafos(estrutura.artesas.texto)">
+            {{ paragrafo }}
+        </p>
+    </div>
+
+    <!-- Althair Section -->
+    <div class="content-section">
+        <h3 class="section-title">{{ estrutura.althair.titulo }}</h3>
+        <p class="section-text" *ngFor="let paragrafo of getParagrafos(estrutura.althair.texto)">
+            {{ paragrafo }}
+        </p>
+    </div>
+</div>
+
+<!-- Floating Button -->
+<button class="floating-button" (click)="scrollToTop()" aria-label="Voltar ao topo da página">
+    <i class="fas fa-chevron-up"></i>
+</button>

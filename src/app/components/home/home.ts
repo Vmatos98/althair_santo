@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Hero } from './components/hero/hero';
 import { SobreSection } from './components/sobre-section/sobre-section';
 import { ColecoesSection } from './components/colecoes-section/colecoes-section';
+import { ArtesasSection } from './components/artesas-section/artesas-section';
 import { GaleriaSection } from './components/galeria-section/galeria-section';
 
 
@@ -11,7 +12,7 @@ import { GaleriaSection } from './components/galeria-section/galeria-section';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, SobreSection, ColecoesSection, GaleriaSection],
+  imports: [Hero, SobreSection, ColecoesSection, ArtesasSection, GaleriaSection],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

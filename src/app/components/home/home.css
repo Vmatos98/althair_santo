@@ -24,11 +24,11 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('/assets/content/renda.png');
+    background-image: url('/assets/content/malha0.png');
     background-size: 500px;
     background-repeat: repeat;
     background-attachment: fixed;
-    opacity: 0.05;
+    opacity: 0.1;
     z-index: 0;
 }
 
