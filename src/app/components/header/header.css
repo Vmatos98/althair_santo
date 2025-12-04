@@ -29,3 +29,25 @@ button.bg-black:hover {
 .font-serif {
     font-family: Georgia, 'Times New Roman', serif;
 }
+
+.logo-image {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.logo-image:hover {
+    opacity: 0.8;
+}
+
+.logo-image-mobile {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.logo-image-mobile:hover {
+    opacity: 0.8;
+}
