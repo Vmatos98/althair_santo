@@ -1,1 +1,23 @@
-<p>galeria works!</p>
+<div class="galeria-container">
+    <div class="main-content">
+        <!-- Page Title -->
+        <h1 class="page-title">Galeria</h1>
+        <div class="title-underline"></div>
+
+        <!-- Gallery Sections -->
+        <div *ngFor="let item of galeria" [id]="item.id" class="gallery-section">
+            <h2 class="section-title">{{ item.titulo }}</h2>
+
+            <div class="images-grid">
+                <div *ngFor="let imagem of item.imagens" class="image-item">
+                    <img [src]="imagem" [alt]="item.titulo" class="gallery-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <button class="floating-button" (click)="scrollToTop()" aria-label="Voltar ao topo da página">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</div>

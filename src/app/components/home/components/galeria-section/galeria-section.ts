@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './galeria-section.css'
 })
 export class GaleriaSection {
-  @Output() navegarParagaleria = new EventEmitter<void>();
+  @Output() navegarParaGaleria = new EventEmitter<void>();
 
   galeriaData = {
     title: 'Galeria',
@@ -58,7 +58,7 @@ export class GaleriaSection {
     ]
   };
 
-  onNavegarParagaleria(): void {
-    this.navegarParagaleria.emit();
+  onNavegarParaGaleria(): void {
+    this.navegarParaGaleria.emit();
   }
 }

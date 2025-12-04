@@ -38,6 +38,8 @@ export class Home {
   }
 
   navegarParaGaleria(): void {
+    console.log("galeria");
+    
     this.router.navigate(['/galeria']);
   }
 
