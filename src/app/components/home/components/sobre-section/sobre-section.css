@@ -30,3 +30,7 @@ button:focus {
     cursor: pointer !important;
     outline: none;
 }
+
+.image{
+    z-index: 1;
+}

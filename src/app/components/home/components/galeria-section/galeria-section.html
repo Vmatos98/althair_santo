@@ -7,7 +7,7 @@
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-      <div *ngFor="let image of galeriaData.features; let i = index" class="group overflow-hidden rounded-sm">
+      <div *ngFor="let image of galeriaData.features; let i = index" class="group overflow-hidden rounded-sm image">
         <img [src]="image.image" alt="'Galeria '{{i + 1}}"
           class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
       </div>
