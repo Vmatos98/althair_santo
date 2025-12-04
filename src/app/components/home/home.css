@@ -147,3 +147,7 @@ input:focus, select:focus, textarea:focus {
 .fab {
     font-weight: 400;
 }
+
+.video{
+    z-index: 1;
+}
