@@ -26,10 +26,10 @@
                     <div *ngIf="collection.imagePosition === 'left'"
                          class="flex flex-col md:flex-row items-center gap-12 mb-16">
                         <!-- Image Left -->
-                        <div class="md:w-1/2">
+                        <div class="md:w-1/2 cursor-pointer" (click)="verColecao(collection.id)">
                             <img [src]="collection.image"
                                  alt="Coleção de moda Althair Santo"
-                                 class="w-full h-auto object-cover rounded-sm shadow-lg">
+                                 class="w-full h-auto object-cover rounded-sm shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         </div>
 
                         <!-- Content Right -->
@@ -41,10 +41,10 @@
                             <p class="text-gray-600 mb-8 text-lg leading-relaxed">
                                 {{ collection.description }}
                             </p>
-                            <!-- <button (click)="verColecao(collection.id)"
+                            <button (click)="verColecao(collection.id)"
                                     class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300 cursor-pointer">
                                 VER COLEÇÃO
-                            </button> -->
+                            </button>
                         </div>
                     </div>
 
@@ -52,10 +52,10 @@
                     <div *ngIf="collection.imagePosition === 'right'"
                          class="flex flex-col md:flex-row-reverse items-center gap-12 mb-16">
                         <!-- Image Right -->
-                        <div class="md:w-1/2">
+                        <div class="md:w-1/2 cursor-pointer" (click)="verColecao(collection.id)">
                             <img [src]="collection.image"
                                  alt="Coleção de moda Althair Santo"
-                                 class="w-full h-auto object-cover rounded-sm shadow-lg">
+                                 class="w-full h-auto object-cover rounded-sm shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         </div>
 
                         <!-- Content Left -->
@@ -67,10 +67,10 @@
                             <p class="text-gray-600 mb-8 text-lg leading-relaxed">
                                 {{ collection.description }}
                             </p>
-                            <!-- <button (click)="verColecao(collection.id)"
+                            <button (click)="verColecao(collection.id)"
                                     class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300 cursor-pointer">
                                 VER COLEÇÃO
-                            </button> -->
+                            </button>
                         </div>
                     </div>
                 </ng-container>

@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ColecoesSection {
   @Output() navegarParaColecoes = new EventEmitter<void>();
+  @Output() navegarParaGaleria = new EventEmitter<void>();
 
   sobreData = {
     title: 'A Alma do Design Autoral',
@@ -31,5 +32,9 @@ export class ColecoesSection {
 
   onNavegarParaColecoes(): void {
     this.navegarParaColecoes.emit();
+  }
+
+  onNavegarParaGaleria(): void {
+    this.navegarParaGaleria.emit();
   }
 }
