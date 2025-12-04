@@ -13,8 +13,8 @@ export class Colecoes {
   collections = [
     {
       id: 'met-gala-2024',
-      title: 'Desfile 2023',
-      description: 'Coleção inspirada no tema "Sleeping Beauties: Reawakening Fashion" do Met Gala, explorando a interseção entre tecnologia e tradição têxtil.',
+      title: 'Brasil Eco Fashion Week 2023',
+      description: 'Brasil Eco Fashion é uma plataforma que promove as boas práticas do mercado e de marcas inseridas na indústria da moda que vem se desenvolvendo com foco nos atributos de sustentabilidade.',
       image: 'https://i.postimg.cc/VL0KfpmW/altair-santo-befw23-011.jpg',
       imagePosition: 'left'
     },
