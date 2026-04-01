@@ -5,7 +5,8 @@
 <app-sobre-section (navegarParaSobre)="navegarParaSobre()"></app-sobre-section>
 
 <!-- Coleções Section -->
-<app-colecoes-section (navegarParaColecoes)="navegarParaColecoes()" (navegarParaGaleria)="navegarParaGaleria()"></app-colecoes-section>
+<app-colecoes-section (navegarParaColecoes)="navegarParaColecoes()"
+    (navegarParaGaleria)="navegarParaGaleria()"></app-colecoes-section>
 
 <!-- Artesãs Section -->
 <app-artesas-section (navegarParaArtesas)="navegarParaArtesas()"></app-artesas-section>
@@ -15,32 +16,7 @@
 
 
 <!-- Videos Section -->
-<section id="videos" class="section min-h-screen flex items-center justify-center bg-white/95 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-serif tracking-wider mb-4">Moda em Movimento</h2>
-        <div class="w-20 h-0.5 bg-black mx-auto mb-4"></div>
-        <p class="text-gray-600 max-w-2xl mx-auto mb-12">Assista aos desfiles, bastidores e ao processo criativo por
-            trás de cada peça. Uma imersão no universo da marca, onde cada detalhe é cuidadosamente planejado e
-            executado.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="aspect-w-16 aspect-h-9 rounded-sm shadow-lg overflow-hidden video">
-                <iframe class="w-full h-full" src="https://www.youtube.com/embed/hNLdUVY7-Fs?si=BaMOv_s2UFtMZOT8" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen title="Vídeo de moda - Desfile Althair Santo"></iframe>
-            </div>
-            <div class="aspect-w-16 aspect-h-9 rounded-sm shadow-lg overflow-hidden video">
-                <iframe class="w-full h-full" src="https://www.youtube.com/embed/1Ij6y67G4Lk?si=uTkV2D49KdUlKxe2" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen title="Vídeo de moda - Bastidores Althair Santo"></iframe>
-            </div>
-        </div>
-        <div class="mt-12">
-            <button (click)="navegarParaVideos()"
-                class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300 cursor-pointer">Ver
-                Mais Vídeos</button>
-        </div>
-    </div>
-</section>
+<app-videos-section (navegarParaVideos)="navegarParaVideos()"></app-videos-section>
 
 <!-- Contact Section -->
 <section id="contato" class="section min-h-screen flex items-center justify-center bg-gray-50/95 py-12">

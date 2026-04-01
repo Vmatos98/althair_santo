@@ -6,13 +6,14 @@ import { SobreSection } from './components/sobre-section/sobre-section';
 import { ColecoesSection } from './components/colecoes-section/colecoes-section';
 import { ArtesasSection } from './components/artesas-section/artesas-section';
 import { GaleriaSection } from './components/galeria-section/galeria-section';
+import { VideosSection } from './components/videos-section/videos-section';
 
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Hero, SobreSection, ColecoesSection, ArtesasSection, GaleriaSection],
+  imports: [Hero, SobreSection, ColecoesSection, ArtesasSection, GaleriaSection, VideosSection],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
