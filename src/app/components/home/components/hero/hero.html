@@ -1,12 +1,6 @@
 <section id="home" class="hero-section relative flex items-center justify-center">
     <!-- Video Background -->
-    <video
-        class="hero-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        [style.opacity]="videoOpacity">
+    <video class="hero-video" autoplay muted loop playsinline [style.opacity]="videoOpacity">
         <source src="/assets/content/logo.mp4" type="video/mp4">
         Seu navegador não suporta vídeos.
     </video>
@@ -17,7 +11,7 @@
     <!-- Content -->
     <div class="text-center px-4" style="z-index: 2;">
         <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 tracking-wider">{{ heroData.title }}</h1>
-        <p class="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto">{{ heroData.subtitle }}</p>
+        <!-- <p class="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto">{{ heroData.subtitle }}</p> -->
     </div>
 
     <!-- Scroll Arrow -->

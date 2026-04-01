@@ -1,1 +1,33 @@
-<p>videos works!</p>
+<div class="galeria-container">
+    <div class="main-content">
+        <!-- Page Title -->
+        <h1 class="page-title">Vídeos</h1>
+        <div class="title-underline"></div>
+
+        <!-- Videos Sections -->
+        <div *ngFor="let item of videos" [id]="item.id" class="gallery-section">
+            <h2 class="section-title">{{ item.titulo }}</h2>
+
+            <div class="videos-grid">
+                <div *ngFor="let link of item.links" class="video-card">
+                    <h3 class="video-title">{{ link.titulo }}</h3>
+                    <div class="video-item">
+                        <iframe 
+                            [src]="getSafeUrl(link.url)" 
+                            [title]="link.titulo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen 
+                            class="gallery-video">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <button class="floating-button" (click)="scrollToTop()" aria-label="Voltar ao topo da página">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</div>
