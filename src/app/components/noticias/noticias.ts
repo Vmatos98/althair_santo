@@ -43,7 +43,7 @@ export class Noticias implements OnInit {
     { id: 'exposicoes', nome: 'Exposições & Mostras' },
     { id: 'reportagens', nome: 'Reportagens em Vídeo' },
     { id: 'televisao', nome: 'Televisão & G1 Globo' },
-    { id: 'internacional', nome: 'Carreira & Alta Costura' }
+    { id: 'internacional', nome: 'Carreira Internacional' }
   ];
 
   noticias: Noticia[] = [
@@ -57,7 +57,7 @@ export class Noticias implements OnInit {
       veiculo: 'Portal Fan F1 / Assessoria de Imprensa',
       imagem: 'assets/content/noticias/fanf1-exposicao.jpeg',
       destaque: true,
-      resumo: 'Das mãos das mulheres rendeiras de Sergipe para galerias, passarelas e importantes eventos de moda no Brasil e no exterior. A exposição "Da Tradição à Economia Criativa" celebra o encontro entre memória, território e alta costura contemporânea.',
+      resumo: 'Das mãos das mulheres rendeiras de Sergipe para galerias, passarelas e importantes eventos de moda no Brasil e no exterior. A exposição "Da Tradição à Economia Criativa" celebra o encontro entre memória, território e moda autoral contemporânea.',
       paragrafos: [
         'Das mãos das mulheres rendeiras de Sergipe para galerias, passarelas e importantes eventos de moda no Brasil e no exterior. Essa é a trajetória que inspira a exposição “Da Tradição à Economia Criativa”, do artista sergipano Althair Santo, realizada no Centro Cultural de Aracaju, no Palácio Museu Luiz Antônio Barreto.',
         'Reconhecido por transformar a renda irlandesa em linguagem contemporânea por meio da arte, da moda e do design, Althair construiu sua carreira valorizando um dos maiores patrimônios culturais de Sergipe. Seu trabalho nasce da convivência com as mulheres rendeiras, guardiãs de um saber transmitido entre gerações e responsáveis por preservar uma das mais importantes expressões do artesanato sergipano.',
@@ -157,7 +157,7 @@ export class Noticias implements OnInit {
     {
       id: 'g1-setv-1-edicao',
       titulo: 'G1 / SETV 1ª Edição: Estilista Althair Santo Realiza na Capital Exposição de Trabalhos Criados por Ele',
-      subtitulo: 'Cobertura do telejornal vespertino da Rede Globo destaca a trajetória de alta costura, figurinos para teledramaturgia e design.',
+      subtitulo: 'Cobertura do telejornal vespertino da Rede Globo destaca a trajetória de moda autoral, figurinos para teledramaturgia e design.',
       categoria: 'televisao',
       categoriaNome: 'Televisão & G1 Globo',
       data: 'Acervo TV Sergipe / Globo',
@@ -174,7 +174,7 @@ export class Noticias implements OnInit {
         texto: 'Criar moda em Sergipe é conectar as mãos do artesão ao olhar do mundo.',
         autor: 'Althair Santo no SETV'
       },
-      tags: ['G1', 'SETV', 'TV Sergipe', 'Rede Globo', 'Figurinos', 'Alta Costura'],
+      tags: ['G1', 'SETV', 'TV Sergipe', 'Rede Globo', 'Figurinos', 'Moda Autoral'],
       linkExterno: {
         url: 'https://g1.globo.com/se/sergipe/videos-setv-1-edicao/video/estilista-altair-santo-realiza-na-capital-uma-exposicao-de-trabalhos-criados-por-ele-2349223.ghtml',
         label: 'Assistir Vídeo no G1 Globo'
@@ -185,7 +185,7 @@ export class Noticias implements OnInit {
       titulo: 'SENAI CETIQT: Produzindo Sonhos – O Ex-Aluno Althair Santo Possui Carreira de Renome Internacional',
       subtitulo: 'A conceituada jornalista de moda Heloisa Tolipan detalha a trajetória do designer, seu estágio na Guess (EUA), Paris e figurinos da TV Globo.',
       categoria: 'internacional',
-      categoriaNome: 'Carreira & Alta Costura',
+      categoriaNome: 'Carreira Internacional',
       data: 'Coluna Heloisa Tolipan',
       veiculo: 'Portal Heloisa Tolipan – Moda',
       imagem: 'assets/content/noticias/heloisa-tolipan.jpg',
@@ -194,7 +194,7 @@ export class Noticias implements OnInit {
       paragrafos: [
         'Em matéria especial no prestigiado portal de moda de Heloisa Tolipan, a trajetória de Althair Santo é contada como um grande exemplo de sucesso e excelência profissional.',
         'O artigo narra como a formação técnica e criativa na Faculdade SENAI CETIQT (RJ) foi decisiva para o estilista, impulsionando experiências internacionais na Guess (Estados Unidos), no Salão do Prêt-à-Porter de Paris e na criação de figurinos aclamados para produções da TV Globo.',
-        'A publicação homenageia a dedicação de Althair em unir o rigor da modelagem de alta costura com a riqueza identitária da renda irlandesa e das tradições sergipanas.'
+        'A publicação homenageia a dedicação de Althair em unir o rigor da modelagem autoral com a riqueza identitária da renda irlandesa e das tradições sergipanas.'
       ],
       citacao: {
         texto: 'A faculdade lapidou o meu talento e me deu a base técnica para levar a identidade brasileira para o cenário internacional.',
@@ -209,7 +209,7 @@ export class Noticias implements OnInit {
     {
       id: 'reportagem-video-boas-historias-artesas',
       titulo: 'Programa Boas Histórias: As Rendeiras de Divina Pastora e a Arte de Althair Santo',
-      subtitulo: 'Documentário especial revela o saber ancestral das mestras rendeiras e a cocriação na alta costura brasileira.',
+      subtitulo: 'Documentário especial revela o saber ancestral das mestras rendeiras e a cocriação na moda autoral brasileira.',
       categoria: 'reportagens',
       categoriaNome: 'Reportagens em Vídeo',
       data: 'Especial Televisivo',

@@ -16,10 +16,24 @@ export class Galeria implements OnInit, AfterViewInit {
 
   galeria = [
     {
-      titulo: "Brasil Eco Fashion Week 2023",
-      id: "eco_Fashion_2023",
+      titulo: "London Fashion Week – Coleção Londres",
+      id: "london-fashion-week",
       imagens: [
-        // "https://i.postimg.cc/nVPvx4sP/altair-santo-befw23-001.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.34.11.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.34.26.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.34.37.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.34.47.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.35.02.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.35.14.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.35.43.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.36.21.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.36.22.jpg"
+      ]
+    },
+    {
+      titulo: "Brasil Eco Fashion Week 2023",
+      id: "befw-2023",
+      imagens: [
         "https://i.postimg.cc/MZFyw7c3/altair-santo-befw23-002.jpg",
         "https://i.postimg.cc/59RwJBHP/altair-santo-befw23-003.jpg",
         "https://i.postimg.cc/SQvW46Xt/altair-santo-befw23-004.jpg",
@@ -30,9 +44,6 @@ export class Galeria implements OnInit, AfterViewInit {
         "https://i.postimg.cc/8PfLz7W3/altair-santo-befw23-009.jpg",
         "https://i.postimg.cc/7YJSZ50v/altair-santo-befw23-010.jpg",
         "https://i.postimg.cc/QxKcdF1s/altair-santo-befw23-011.jpg",
-        // "https://i.postimg.cc/sDG5gM7z/altair-santo-befw23-012.jpg",
-        // "https://i.postimg.cc/RVJwZWK4/altair-santo-befw23-013.jpg",
-        // "https://i.postimg.cc/gkL32x8Y/altair-santo-befw23-014.jpg",
         "https://i.postimg.cc/8PfLz7MP/altair-santo-befw23-015.jpg",
         "https://i.postimg.cc/0ygDM90g/altair-santo-befw23-016.jpg",
         "https://i.postimg.cc/CxykBwsT/altair-santo-befw23-017.jpg",
@@ -54,34 +65,33 @@ export class Galeria implements OnInit, AfterViewInit {
         "https://i.postimg.cc/CxjDb9cb/altair-santo-befw23-033.jpg",
         "https://i.postimg.cc/Dwqs1Rxg/altair-santo-befw23-034.jpg",
         "https://i.postimg.cc/CxjDb9cm/altair-santo-befw23-035.jpg",
-        // "https://i.postimg.cc/MpyR1g9s/altair-santo-befw23-036.jpg",
-        // "https://i.postimg.cc/T3rmnBt7/altair-santo-befw23-037.jpg",
-        // "https://i.postimg.cc/qv8n2W1Y/altair-santo-befw23-038.jpg",
         "https://i.postimg.cc/fRxXY181/altair-santo-befw23-039.jpg",
-        "https://i.postimg.cc/Xv45LxPx/altair-santo-befw23-040.jpg",
-        // "https://i.postimg.cc/tgp6kDc2/altair-santo-befw23-041.jpg",
-        // "https://i.postimg.cc/Zq4NHjQw/altair-santo-befw23-042.jpg",
-        // "https://i.postimg.cc/W4TZ8Sy9/altair-santo-befw23-043.jpg",
-        // "https://i.postimg.cc/g0mhs47Q/altair-santo-befw23-044.jpg",
-        // "https://i.postimg.cc/FKNSpG66/altair-santo-befw23-045.jpg"
+        "https://i.postimg.cc/Xv45LxPx/altair-santo-befw23-040.jpg"
       ]
     }
-  ]
+  ];
 
   ngOnInit(): void {
     this.route.fragment.subscribe(fragment => {
       this.fragmentToScroll = fragment;
+      if (fragment) {
+        setTimeout(() => this.scrollToFragment(fragment), 200);
+      }
     });
   }
 
   ngAfterViewInit(): void {
     if (this.fragmentToScroll) {
       setTimeout(() => {
-        const element = document.getElementById(this.fragmentToScroll!);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
+        this.scrollToFragment(this.fragmentToScroll!);
+      }, 300);
+    }
+  }
+
+  private scrollToFragment(fragment: string): void {
+    const element = document.getElementById(fragment);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 

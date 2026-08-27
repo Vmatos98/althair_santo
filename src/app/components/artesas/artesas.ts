@@ -18,9 +18,9 @@ export class Artesas {
     },
 
     artesanato: {
-      titulo: "A Arte: Renda Irlandesa – O Patrimônio da Alta Costura Brasileira",
+      titulo: "A Arte: Renda Irlandesa – O Patrimônio da Moda Autoral Brasileira",
       texto: `A Renda Irlandesa de Divina Pastora, Sergipe, é mais do que um artesanato; é um Patrimônio Vivo reconhecido e elevado à categoria de arte. Este saber ancestral é meticulosamente preservado pelas mãos de nossas rendeiras, sendo transmitido de geração para geração, vizinha para vizinha.
-              A técnica é singular e sua execução é totalmente manual. Em um mundo de produção em massa, cada peça de Renda Irlandesa é um objeto de Alta Costura (Haute Couture). Assim como os ateliês de Paris, honramos a tradição de que 80% a 90% da peça é feita artesanalmente. Não se trata de uma produção em série, mas de uma criação singular que carrega a alma e a história de quem a teceu.
+              A técnica é singular e sua execução é totalmente manual. Em um mundo de produção em massa, cada peça de Renda Irlandesa é uma obra única de design autoral. Honramos a tradição de que o processo é feito inteiramente de forma artesanal. Não se trata de uma produção em série, mas de uma criação singular que carrega a alma e a história de quem a teceu.
               Para o Ateliê Altair Santo, a Renda Irlandesa é o nosso tecido mais nobre, conferindo exclusividade, atemporalidade e um valor intrínseco que transcende as tendências efêmeras da moda.`
     },
     artesas: {
@@ -41,7 +41,7 @@ export class Artesas {
 
             Criação em Colaboração: O processo é uma cocriação com o cliente. Através de um acompanhamento detalhado e transparente (via chamadas de vídeo), o cliente testemunha a evolução de sua peça, desde a escolha do desenho e dos pontos até a montagem final, criando um vínculo afetivo e um profundo entendimento sobre o valor da obra.
 
-            Altair Santo estabelece uma ponte entre a tradição mais pura e a moda global, provando que é possível unir a exclusividade da Alta Costura com a ética e a sustentabilidade.`
+            Altair Santo estabelece uma ponte entre a tradição mais pura e a moda global, provando que é possível unir a exclusividade do design autoral com a ética e a sustentabilidade.`
     }
   }
 
