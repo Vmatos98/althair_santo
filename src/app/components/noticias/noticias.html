@@ -1,0 +1,304 @@
+<div class="noticias-page min-h-screen bg-white/95 relative">
+  <!-- Background Lace Watermark -->
+  <div class="fixed inset-0 bg-repeat opacity-[0.03] pointer-events-none lace-bg"
+       style="background-image: url('assets/content/renda.png'); background-size: 500px; z-index: 0;"></div>
+
+  <div class="relative z-10 pt-28 pb-20">
+    <!-- Hero / Header Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+      <div class="inline-block px-4 py-1 mb-4 border border-black/20 text-xs uppercase tracking-widest text-gray-700 bg-gray-50/80">
+        Mídia, Reportagens & Reconhecimento
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900 mb-6 tracking-wider uppercase">
+        Notícias & Imprensa
+      </h1>
+      <div class="w-20 h-0.5 bg-black mx-auto mb-6"></div>
+      <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+        Acompanhe a repercussão, matérias de TV, reportagens em vídeo, desfiles e exposições que marcam a trajetória de Althair Santo e a valorização da renda sergipana no Brasil e no mundo.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap justify-center items-center gap-2 md:gap-3 mt-10">
+        <button *ngFor="let cat of categorias"
+                (click)="setCategoria(cat.id)"
+                class="px-5 py-2.5 text-xs md:text-sm tracking-wider uppercase transition-all duration-300 rounded-sm cursor-pointer border"
+                [ngClass]="categoriaAtiva === cat.id ? 'bg-black text-white border-black shadow-md' : 'bg-white/80 text-gray-700 border-gray-200 hover:border-black hover:text-black'">
+          {{ cat.nome }}
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Featured Highlight Card (When on 'todas' tab) -->
+      <section *ngIf="categoriaAtiva === 'todas' && noticiaDestaque" class="mb-16">
+        <div class="border border-gray-200 bg-white rounded-sm shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+            
+            <!-- Image Left / Top -->
+            <div class="lg:col-span-7 relative overflow-hidden group cursor-pointer min-h-[320px] lg:min-h-[460px]"
+                 (click)="abrirNoticia(noticiaDestaque)">
+              <img [src]="noticiaDestaque.imagem" 
+                   [alt]="noticiaDestaque.titulo"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent lg:hidden"></div>
+              <div class="absolute top-4 left-4">
+                <span class="bg-black text-white text-xs tracking-widest uppercase px-3 py-1.5 font-medium shadow-sm">
+                  Destaque Principal
+                </span>
+              </div>
+            </div>
+
+            <!-- Content Right -->
+            <div class="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-white">
+              <div>
+                <div class="flex items-center gap-3 text-xs text-gray-500 uppercase tracking-wider mb-4">
+                  <span class="font-semibold text-black">{{ noticiaDestaque.categoriaNome }}</span>
+                  <span>•</span>
+                  <span><i class="far fa-calendar-alt mr-1"></i>{{ noticiaDestaque.data }}</span>
+                </div>
+
+                <h2 class="text-2xl sm:text-3xl font-serif text-gray-900 mb-4 leading-snug cursor-pointer hover:text-gray-700 transition"
+                    (click)="abrirNoticia(noticiaDestaque)">
+                  {{ noticiaDestaque.titulo }}
+                </h2>
+
+                <div class="w-12 h-0.5 bg-black mb-4"></div>
+
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 font-light">
+                  {{ noticiaDestaque.resumo }}
+                </p>
+
+                <div class="flex items-center text-xs text-gray-500 mb-6">
+                  <i class="fas fa-newspaper mr-2 text-black"></i>
+                  <span>Fonte: <strong class="text-gray-800">{{ noticiaDestaque.veiculo }}</strong></span>
+                </div>
+              </div>
+
+              <div>
+                <button (click)="abrirNoticia(noticiaDestaque)"
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-black text-white text-xs md:text-sm tracking-widest uppercase px-8 py-3.5 hover:bg-gray-800 transition duration-300 cursor-pointer">
+                  <span>Ler Matéria Completa</span>
+                  <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Title for Regular Grid (when displaying category) -->
+      <div class="flex items-center justify-between border-b border-gray-200 pb-4 mb-8">
+        <h2 class="text-lg md:text-xl font-serif tracking-wider uppercase text-gray-900">
+          {{ categoriaAtiva === 'todas' ? 'Mais Notícias & Reportagens' : 'Artigos: ' + (noticiasFiltradas.length ? noticiasFiltradas[0].categoriaNome : '') }}
+        </h2>
+        <span class="text-xs text-gray-500 uppercase tracking-widest font-mono">
+          {{ outrasNoticias.length }} {{ outrasNoticias.length === 1 ? 'matéria' : 'matérias' }}
+        </span>
+      </div>
+
+      <!-- News Grid -->
+      <div *ngIf="outrasNoticias.length > 0; else emptyState" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article *ngFor="let noticia of outrasNoticias"
+                 class="news-card border border-gray-200 bg-white rounded-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 group overflow-hidden">
+          
+          <!-- Top / Image / Video Badge -->
+          <div>
+            <div class="relative overflow-hidden aspect-[16/10] bg-gray-100 cursor-pointer"
+                 (click)="abrirNoticia(noticia)">
+              <img [src]="noticia.imagem" 
+                   [alt]="noticia.titulo"
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              
+              <!-- Category Badge -->
+              <div class="absolute top-3 left-3">
+                <span class="bg-black/90 text-white text-[10px] tracking-wider uppercase px-2.5 py-1">
+                  {{ noticia.categoriaNome }}
+                </span>
+              </div>
+
+              <!-- Video Icon Overlay if Video is Available -->
+              <div *ngIf="noticia.videoUrl" 
+                   class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/40 transition-colors">
+                <div class="w-12 h-12 rounded-full bg-white/95 text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <i class="fas fa-play ml-1 text-sm text-black"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Content Body -->
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs text-gray-400 mb-3 tracking-wider">
+                <span><i class="far fa-calendar mr-1"></i>{{ noticia.data }}</span>
+                <span class="truncate max-w-[150px]" [title]="noticia.veiculo">
+                  <i [class]="noticia.videoUrl ? 'fas fa-video mr-1 text-black' : 'fas fa-bookmark mr-1'"></i>{{ noticia.veiculo }}
+                </span>
+              </div>
+
+              <h3 class="text-xl font-serif text-gray-900 mb-3 leading-snug cursor-pointer group-hover:text-gray-700 transition"
+                  (click)="abrirNoticia(noticia)">
+                {{ noticia.titulo }}
+              </h3>
+
+              <p class="text-gray-600 text-sm font-light leading-relaxed line-clamp-3 mb-4">
+                {{ noticia.resumo }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="px-6 pb-6 pt-2 border-t border-gray-100 flex items-center justify-between">
+            <div class="flex flex-wrap gap-1">
+              <span *ngFor="let tag of noticia.tags.slice(0, 2)" class="text-[10px] uppercase bg-gray-100 text-gray-600 px-2 py-0.5 rounded-sm">
+                #{{ tag }}
+              </span>
+            </div>
+            <button (click)="abrirNoticia(noticia)"
+                    class="text-xs font-semibold uppercase tracking-wider text-black hover:text-gray-600 flex items-center gap-1 cursor-pointer transition">
+              <span>{{ noticia.videoUrl ? 'Assistir / Ler' : 'Ler Mais' }}</span>
+              <i class="fas fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+
+        </article>
+      </div>
+
+      <!-- Empty State -->
+      <ng-template #emptyState>
+        <div class="text-center py-20 bg-gray-50 border border-dashed border-gray-300 rounded-sm">
+          <i class="far fa-newspaper text-4xl text-gray-400 mb-4"></i>
+          <h3 class="text-xl font-serif text-gray-800 mb-2">Nenhuma matéria encontrada</h3>
+          <p class="text-gray-500 text-sm mb-6">Não há notícias cadastradas para esta categoria no momento.</p>
+          <button (click)="setCategoria('todas')" class="border border-black px-6 py-2 text-xs uppercase tracking-wider hover:bg-black hover:text-white transition">
+            Ver todas as matérias
+          </button>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+
+  <!-- News Detail Modal / Reading Drawer -->
+  <div *ngIf="isModalOpen && noticiaSelecionada"
+       class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-10 modal-backdrop">
+    
+    <!-- Backdrop Overlay -->
+    <div class="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"
+         (click)="fecharModal()"></div>
+
+    <!-- Modal Content Card -->
+    <div class="relative bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-sm shadow-2xl z-10 modal-container border border-gray-200">
+      
+      <!-- Top Close Button Bar -->
+      <div class="sticky top-0 right-0 z-20 bg-white/95 backdrop-blur px-6 py-4 border-b border-gray-100 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="bg-black text-white text-[11px] tracking-widest uppercase px-3 py-1 font-medium">
+            {{ noticiaSelecionada.categoriaNome }}
+          </span>
+          <span class="text-xs text-gray-500 ml-2">
+            <i class="far fa-calendar-alt mr-1"></i>{{ noticiaSelecionada.data }}
+          </span>
+        </div>
+        <button (click)="fecharModal()"
+                class="w-9 h-9 flex items-center justify-center text-gray-500 hover:text-black hover:bg-gray-100 rounded-full transition cursor-pointer"
+                aria-label="Fechar modal">
+          <i class="fas fa-times text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 sm:p-10">
+        
+        <!-- Title & Subtitle -->
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gray-900 leading-tight mb-4">
+          {{ noticiaSelecionada.titulo }}
+        </h2>
+
+        <p *ngIf="noticiaSelecionada.subtitulo" class="text-base sm:text-lg text-gray-600 font-light leading-relaxed mb-6 italic">
+          {{ noticiaSelecionada.subtitulo }}
+        </p>
+
+        <div class="w-16 h-0.5 bg-black mb-8"></div>
+
+        <!-- Embedded Video Player if videoUrl exists -->
+        <div *ngIf="noticiaSelecionada.videoUrl" class="mb-8 overflow-hidden rounded-sm border border-gray-200 shadow-md">
+          <div class="relative w-full aspect-video bg-black">
+            <iframe 
+              [src]="getSafeUrl(noticiaSelecionada.videoUrl)" 
+              [title]="noticiaSelecionada.titulo" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen 
+              class="w-full h-full">
+            </iframe>
+          </div>
+          <div class="p-3 bg-gray-50 text-xs text-gray-500 flex items-center justify-between border-t border-gray-100">
+            <span><i class="fas fa-play-circle mr-1 text-black"></i> Player de Vídeo Oficial</span>
+            <span>Veículo: <strong>{{ noticiaSelecionada.veiculo }}</strong></span>
+          </div>
+        </div>
+
+        <!-- Featured Image (if no video or as media banner) -->
+        <div *ngIf="!noticiaSelecionada.videoUrl" class="mb-8 overflow-hidden rounded-sm border border-gray-200">
+          <img [src]="noticiaSelecionada.imagem"
+               [alt]="noticiaSelecionada.titulo"
+               class="w-full max-h-[440px] object-cover object-center">
+          <div class="p-3 bg-gray-50 text-xs text-gray-500 flex items-center justify-between border-t border-gray-100">
+            <span><i class="fas fa-camera mr-1"></i> Acervo Althair Santo / Divulgação</span>
+            <span>Veículo: <strong>{{ noticiaSelecionada.veiculo }}</strong></span>
+          </div>
+        </div>
+
+        <!-- Article Paragraphs -->
+        <div class="article-prose space-y-5 text-gray-700 text-base sm:text-lg leading-relaxed font-light mb-8">
+          <p *ngFor="let p of noticiaSelecionada.paragrafos">
+            {{ p }}
+          </p>
+        </div>
+
+        <!-- Quote Callout (if available) -->
+        <blockquote *ngIf="noticiaSelecionada.citacao" class="my-8 p-6 bg-gray-50 border-l-4 border-black italic text-gray-800">
+          <p class="text-lg font-serif mb-2">"{{ noticiaSelecionada.citacao.texto }}"</p>
+          <cite class="text-xs uppercase tracking-wider text-gray-500 not-italic block font-sans">
+            — {{ noticiaSelecionada.citacao.autor }}
+          </cite>
+        </blockquote>
+
+        <!-- Tags -->
+        <div class="border-t border-b border-gray-100 py-4 my-8 flex flex-wrap items-center gap-2">
+          <span class="text-xs text-gray-500 uppercase tracking-wider mr-2 font-medium">Tags:</span>
+          <span *ngFor="let tag of noticiaSelecionada.tags" class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-sm">
+            #{{ tag }}
+          </span>
+        </div>
+
+        <!-- Action / External Link Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+          <div *ngIf="noticiaSelecionada.linkExterno">
+            <a [href]="noticiaSelecionada.linkExterno.url" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 border border-black text-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition">
+              <span>{{ noticiaSelecionada.linkExterno.label }}</span>
+              <i class="fas fa-external-link-alt text-[11px]"></i>
+            </a>
+          </div>
+
+          <button (click)="fecharModal()"
+                  class="w-full sm:w-auto bg-black text-white px-8 py-3 text-xs uppercase tracking-widest hover:bg-gray-800 transition cursor-pointer">
+            Fechar Artigo
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Floating Scroll To Top Button -->
+  <button class="floating-button" (click)="scrollToTop()" aria-label="Voltar ao topo da página">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+</div>

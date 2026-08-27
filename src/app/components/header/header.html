@@ -20,14 +20,14 @@
 
             <!-- Right Menu -->
             <div class="flex items-center space-x-7 justify-self-start">
-                <ng-container *ngFor="let item of menuItems.slice(3, 5)">
+                <ng-container *ngFor="let item of menuItems.slice(3, 6)">
                     <button (click)="navigateToPage(item)"
                         class="text-gray-900 hover:text-gray-600 text-sm font-medium bg-transparent border-none cursor-pointer">{{
                         item.label }}</button>
                 </ng-container>
-                <button (click)="navigateToPage(menuItems[5])"
+                <button (click)="navigateToPage(menuItems[6])"
                     class="bg-black text-white px-4 py-2 rounded-sm hover:bg-gray-800 transition duration-300 cursor-pointer">{{
-                    menuItems[5].label }}</button>
+                    menuItems[6].label }}</button>
             </div>
         </div>
 
