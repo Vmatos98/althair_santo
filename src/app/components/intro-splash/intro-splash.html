@@ -1,0 +1,39 @@
+<div *ngIf="isVisible" 
+     class="intro-overlay fixed inset-0 z-[99999] bg-black flex flex-col items-center justify-center select-none overflow-hidden"
+     [class.fade-out]="isFadingOut"
+     (transitionend)="onTransitionEnd($event)">
+  
+  <!-- Subtle Ambient Glow Background -->
+  <div class="absolute inset-0 bg-radial-ambient pointer-events-none"></div>
+  <div class="absolute inset-0 bg-repeat opacity-[0.02] pointer-events-none"
+       style="background-image: url('assets/content/renda.png'); background-size: 450px;"></div>
+
+  <!-- Central Logo Container -->
+  <div class="relative z-10 flex flex-col items-center justify-center px-6 max-w-4xl w-full text-center intro-content"
+       [class.fade-out]="isFadingOut">
+    
+    <!-- Horizontal Logo (Desktop & Tablet: md+) -->
+    <div class="hidden md:flex justify-center items-center w-full max-w-[560px] lg:max-w-[680px] logo-container">
+      <img src="assets/content/logo_intro_desktop.png" 
+           alt="Althair Santo" 
+           class="w-full h-auto object-contain intro-logo-img">
+    </div>
+
+    <!-- Vertical Logo (Mobile: < md) -->
+    <div class="flex md:hidden justify-center items-center w-full max-w-[260px] sm:max-w-[300px] logo-container">
+      <img src="assets/content/logo_intro_mobile.png" 
+           alt="Althair Santo" 
+           class="w-full h-auto object-contain intro-logo-img">
+    </div>
+
+    <!-- Elegant Subtitle & Divider -->
+    <div class="intro-caption mt-6 flex flex-col items-center">
+      <div class="intro-line w-12 h-[1px] bg-white/40 mb-3"></div>
+      <p class="text-[11px] sm:text-xs tracking-[0.35em] uppercase text-gray-400 font-light font-sans">
+        Design Autoral • Alta Costura
+      </p>
+    </div>
+
+  </div>
+
+</div>
