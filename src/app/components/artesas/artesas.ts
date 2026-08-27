@@ -13,8 +13,8 @@ export class Artesas {
   constructor(private sanitizer: DomSanitizer) { }
   estrutura = {
     video: {
-      url: "http://www.youtube.com/watch?v=_gzK4s9jGR4",
-      descricao: "Você pode encontrar o vídeo na integra aqui: Boas histórias - Divina Pastora."
+      url: "https://youtu.be/fiKwvouPKG4",
+      descricao: "Renda Irlandesa de Divina Pastora – O Saber Fazer das Rendeiras."
     },
 
     artesanato: {
@@ -46,9 +46,8 @@ export class Artesas {
   }
 
   getVideoUrl(): SafeResourceUrl {
-    // Extrair o ID do vídeo do YouTube e adicionar o parâmetro de início em 11:30 (690 segundos) com autoplay
-    const videoId = '_gzK4s9jGR4';
-    const embedUrl = `https://www.youtube.com/embed/${videoId}?start=690&autoplay=1&rel=0&modestbranding=1`;
+    const videoId = 'fiKwvouPKG4';
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 

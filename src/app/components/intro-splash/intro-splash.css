@@ -1,0 +1,92 @@
+/* Overlay Container */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: auto;
+}
+
+.intro-overlay.fade-out {
+  pointer-events: none;
+}
+
+/* Fundo Preto que dissolve suavemente revelando o vídeo */
+.intro-backdrop {
+  background-color: #000000;
+  opacity: 1;
+  transition: opacity 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.intro-backdrop.fade-out {
+  opacity: 0 !important;
+}
+
+/* Logo Container: Surge com animação e se MANTÉM 100% visível */
+.intro-content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.logo-box {
+  animation: logoEntrance 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.75));
+  margin: 0 auto;
+}
+
+.intro-logo-img {
+  display: block;
+}
+
+/* Subtítulo: surge e depois desaparece junto com o fundo preto */
+.intro-caption {
+  animation: captionEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-caption.fade-out {
+  opacity: 0 !important;
+  transform: translateY(10px);
+}
+
+.intro-line {
+  animation: expandLine 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+/* Animação de Entrada da Logo */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(8px) drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px) drop-shadow(0 4px 24px rgba(0, 0, 0, 0.75));
+  }
+}
+
+@keyframes captionEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    letter-spacing: 0.15em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandLine {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 48px;
+    opacity: 0.5;
+  }
+}

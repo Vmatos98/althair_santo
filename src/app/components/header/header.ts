@@ -20,6 +20,7 @@ export class Header {
     { href: '/artesas', label: 'Artesãs', sectionId: 'artesas' },
     { href: '/galeria', label: 'Galeria', sectionId: 'galeria' },
     { href: '/videos', label: 'Vídeos', sectionId: 'videos' },
+    { href: '/noticias', label: 'Notícias', sectionId: 'noticias' },
     { href: '/contato', label: 'Contato', sectionId: 'contato', isButton: true }
   ];
 
@@ -44,19 +45,34 @@ export class Header {
   }
 
   navigateToPage(item: any): void {
-    if (this.isOnHomePage) {
-      // Se estamos na página inicial, fazer scroll suave para a seção
-      this.smoothScrollToSection(item.sectionId);
-    } else {
-      // Se estamos em outra página, navegar para a página de destino
-      this.router.navigate([item.href]);
+    if (this.isOnHomePage && item.sectionId) {
+      const targetElement = document.getElementById(item.sectionId);
+      if (targetElement) {
+        this.smoothScrollToSection(item.sectionId);
+        this.closeMobileMenu();
+        return;
+      }
     }
+
+    // Se não há elemento com id correspondente na página ou se estamos em outra rota, navega para a página
+    this.router.navigate([item.href]).then(() => {
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
     this.closeMobileMenu();
   }
 
   navigateToHome(): void {
-    this.router.navigate(['/']);
-    this.smoothScrollToSection('home');
+    if (this.isOnHomePage) {
+      this.smoothScrollToSection('home');
+    } else {
+      this.router.navigate(['/']).then(() => {
+        if (typeof window !== 'undefined') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
     this.closeMobileMenu();
   }
 

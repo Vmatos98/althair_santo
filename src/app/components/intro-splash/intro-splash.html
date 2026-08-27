@@ -1,0 +1,38 @@
+<div *ngIf="isVisible" 
+     class="intro-overlay fixed inset-0 z-[99999] flex items-center justify-center select-none overflow-hidden"
+     [class.fade-out]="isFadingOut">
+
+  <!-- Fundo Preto que dissolve suavemente revelando o vídeo atrás -->
+  <div class="intro-backdrop absolute inset-0 bg-black"
+       [class.fade-out]="isFadingOut"
+       (transitionend)="onTransitionEnd($event)"></div>
+
+  <!-- Logo Central: Surge animada e PERMANECE visível quando o fundo e textos somem -->
+  <div class="relative text-center px-4 flex flex-col items-center justify-center intro-content-wrapper z-10">
+    
+    <!-- Desktop / Tablet Horizontal Logo -->
+    <div class="hidden md:flex justify-center items-center w-full max-w-[540px] lg:max-w-[660px] logo-box">
+      <img src="assets/content/logo_intro_desktop.png" 
+           alt="Althair Santo" 
+           class="w-full h-auto object-contain intro-logo-img">
+    </div>
+
+    <!-- Mobile Vertical Logo -->
+    <div class="flex md:hidden justify-center items-center w-full max-w-[220px] sm:max-w-[260px] logo-box">
+      <img src="assets/content/logo_intro_mobile.png" 
+           alt="Althair Santo" 
+           class="w-full h-auto object-contain intro-logo-img">
+    </div>
+
+    <!-- Subtítulo e Linha: Surgem e somem suavemente junto com o fundo preto -->
+    <div class="intro-caption absolute top-full left-0 right-0 mt-5 flex flex-col items-center pointer-events-none"
+         [class.fade-out]="isFadingOut">
+      <div class="intro-line w-12 h-[1px] bg-white/40 mb-3"></div>
+      <p class="text-[11px] sm:text-xs tracking-[0.35em] uppercase text-gray-400 font-light font-sans whitespace-nowrap">
+        Design Autoral • Alta Costura
+      </p>
+    </div>
+
+  </div>
+
+</div>
