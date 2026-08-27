@@ -2,24 +2,38 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-3xl md:text-4xl font-serif tracking-wider mb-4">Coleções</h2>
     <div class="w-20 h-0.5 bg-black mx-auto mb-4"></div>
-    <p class="text-gray-600 max-w-2xl mx-auto mb-12">Descubra as últimas criações de Althair Santo, cada peça conta
-      uma história única, combinando tradição e inovação.</p>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-12">Descubra as criações e desfiles de Althair Santo, onde a tradição da Renda Irlandesa encontra a vanguarda do design contemporâneo.</p>
 
-    <div class="flex justify-center mb-12">
-      <div class="text-center cursor-pointer w-full md:w-80" (click)="onNavegarParaGaleria()">
-        <div class="group relative overflow-hidden rounded-sm">
-          <img src="https://i.postimg.cc/VL0KfpmW/altair-santo-befw23-011.jpg" alt="Coleção Desfile 2023"
-            class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
+    <!-- Grid de Coleções em Destaque -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+      <!-- Coleção Londres -->
+      <div class="text-center cursor-pointer group" (click)="onNavegarParaColecoes()">
+        <div class="relative overflow-hidden rounded-sm shadow-md group-hover:shadow-xl transition-shadow duration-300">
+          <img src="https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.34.11.jpg" 
+               alt="Coleção Londres – London Fashion Week"
+               class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
         </div>
-        <h3 class="text-xl font-serif mt-4 mb-2">Brasil Eco Fashion Week 2023</h3>
-        <p class="text-sm text-gray-600 px-4">Leveza e sustentabilidade</p>
+        <h3 class="text-xl font-serif mt-4 mb-1">London Fashion Week</h3>
+        <p class="text-sm text-gray-600 px-4">Coleção Londres • Design Autoral</p>
+      </div>
+
+      <!-- Brasil Eco Fashion Week 2023 -->
+      <div class="text-center cursor-pointer group" (click)="onNavegarParaColecoes()">
+        <div class="relative overflow-hidden rounded-sm shadow-md group-hover:shadow-xl transition-shadow duration-300">
+          <img src="https://i.postimg.cc/VL0KfpmW/altair-santo-befw23-011.jpg" 
+               alt="Brasil Eco Fashion Week 2023"
+               class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
+        </div>
+        <h3 class="text-xl font-serif mt-4 mb-1">Brasil Eco Fashion Week</h3>
+        <p class="text-sm text-gray-600 px-4">Sustentabilidade & Tradição</p>
       </div>
     </div>
 
-    <div class="mt-12">
+    <div class="mt-8">
       <button (click)="onNavegarParaColecoes()"
-        class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300 cursor-pointer">Ver
-        Todas as Coleções</button>
+        class="inline-block border border-black px-8 py-3 hover:bg-black hover:text-white transition duration-300 cursor-pointer">
+        Ver Todas as Coleções
+      </button>
     </div>
   </div>
 </section>
