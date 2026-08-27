@@ -1,35 +1,34 @@
 <div *ngIf="isVisible" 
-     class="intro-overlay fixed inset-0 z-[99999] bg-black flex flex-col items-center justify-center select-none overflow-hidden"
-     [class.fade-out]="isFadingOut"
-     (transitionend)="onTransitionEnd($event)">
-  
-  <!-- Subtle Ambient Glow Background -->
-  <div class="absolute inset-0 bg-radial-ambient pointer-events-none"></div>
-  <div class="absolute inset-0 bg-repeat opacity-[0.02] pointer-events-none"
-       style="background-image: url('assets/content/renda.png'); background-size: 450px;"></div>
+     class="intro-overlay fixed inset-0 z-[99999] flex items-center justify-center select-none overflow-hidden"
+     [class.fade-out]="isFadingOut">
 
-  <!-- Central Logo Container -->
-  <div class="relative z-10 flex flex-col items-center justify-center px-6 max-w-4xl w-full text-center intro-content"
-       [class.fade-out]="isFadingOut">
+  <!-- Fundo Preto que dissolve suavemente revelando o vídeo atrás -->
+  <div class="intro-backdrop absolute inset-0 bg-black"
+       [class.fade-out]="isFadingOut"
+       (transitionend)="onTransitionEnd($event)"></div>
+
+  <!-- Logo Central: Surge animada e PERMANECE visível quando o fundo e textos somem -->
+  <div class="relative text-center px-4 flex flex-col items-center justify-center intro-content-wrapper z-10">
     
-    <!-- Horizontal Logo (Desktop & Tablet: md+) -->
-    <div class="hidden md:flex justify-center items-center w-full max-w-[560px] lg:max-w-[680px] logo-container">
+    <!-- Desktop / Tablet Horizontal Logo -->
+    <div class="hidden md:flex justify-center items-center w-full max-w-[540px] lg:max-w-[660px] logo-box">
       <img src="assets/content/logo_intro_desktop.png" 
            alt="Althair Santo" 
            class="w-full h-auto object-contain intro-logo-img">
     </div>
 
-    <!-- Vertical Logo (Mobile: < md) -->
-    <div class="flex md:hidden justify-center items-center w-full max-w-[260px] sm:max-w-[300px] logo-container">
+    <!-- Mobile Vertical Logo -->
+    <div class="flex md:hidden justify-center items-center w-full max-w-[220px] sm:max-w-[260px] logo-box">
       <img src="assets/content/logo_intro_mobile.png" 
            alt="Althair Santo" 
            class="w-full h-auto object-contain intro-logo-img">
     </div>
 
-    <!-- Elegant Subtitle & Divider -->
-    <div class="intro-caption mt-6 flex flex-col items-center">
+    <!-- Subtítulo e Linha: Surgem e somem suavemente junto com o fundo preto -->
+    <div class="intro-caption absolute top-full left-0 right-0 mt-5 flex flex-col items-center pointer-events-none"
+         [class.fade-out]="isFadingOut">
       <div class="intro-line w-12 h-[1px] bg-white/40 mb-3"></div>
-      <p class="text-[11px] sm:text-xs tracking-[0.35em] uppercase text-gray-400 font-light font-sans">
+      <p class="text-[11px] sm:text-xs tracking-[0.35em] uppercase text-gray-400 font-light font-sans whitespace-nowrap">
         Design Autoral • Alta Costura
       </p>
     </div>

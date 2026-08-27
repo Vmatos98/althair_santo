@@ -1,80 +1,70 @@
-/* Overlay Fullscreen com Transição Suave */
+/* Overlay Container */
 .intro-overlay {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background-color: #000000;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: opacity, transform;
   pointer-events: auto;
 }
 
-/* Transição de Saída (Fade-Out) */
 .intro-overlay.fade-out {
+  pointer-events: none;
+}
+
+/* Fundo Preto que dissolve suavemente revelando o vídeo */
+.intro-backdrop {
+  background-color: #000000;
+  opacity: 1;
+  transition: opacity 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.intro-backdrop.fade-out {
   opacity: 0 !important;
-  transform: scale(1.03);
-  pointer-events: none !important;
 }
 
-.intro-content {
-  transition: opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+/* Logo Container: Surge com animação e se MANTÉM 100% visível */
+.intro-content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
 }
 
-.intro-content.fade-out {
-  opacity: 0 !important;
-  transform: scale(0.97);
-}
-
-/* Ambient Radial Glow */
-.bg-radial-ambient {
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.95) 70%, #000000 100%);
-}
-
-/* Logo Container & Animation */
-.logo-container {
-  animation: logoEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.15));
+.logo-box {
+  animation: logoEntrance 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.75));
+  margin: 0 auto;
 }
 
 .intro-logo-img {
-  animation: logoPulse 2.5s ease-in-out infinite alternate;
+  display: block;
 }
 
-/* Subtítulo */
+/* Subtítulo: surge e depois desaparece junto com o fundo preto */
 .intro-caption {
   animation: captionEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-caption.fade-out {
+  opacity: 0 !important;
+  transform: translateY(10px);
 }
 
 .intro-line {
   animation: expandLine 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
 }
 
-/* Keyframe Animations */
+/* Animação de Entrada da Logo */
 @keyframes logoEntrance {
   0% {
     opacity: 0;
-    transform: scale(0.9) translateY(10px);
-    filter: blur(6px) drop-shadow(0 0 0px rgba(255, 255, 255, 0));
-  }
-  60% {
-    opacity: 1;
-    filter: blur(0px) drop-shadow(0 0 30px rgba(255, 255, 255, 0.35));
+    transform: scale(0.9);
+    filter: blur(8px) drop-shadow(0 0 0px rgba(255, 255, 255, 0));
   }
   100% {
     opacity: 1;
-    transform: scale(1) translateY(0);
-    filter: blur(0px) drop-shadow(0 0 20px rgba(255, 255, 255, 0.18));
-  }
-}
-
-@keyframes logoPulse {
-  0% {
-    filter: brightness(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
-  }
-  100% {
-    filter: brightness(1.1) drop-shadow(0 0 25px rgba(255, 255, 255, 0.25));
+    transform: scale(1);
+    filter: blur(0px) drop-shadow(0 4px 24px rgba(0, 0, 0, 0.75));
   }
 }
 

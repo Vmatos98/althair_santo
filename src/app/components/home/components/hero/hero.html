@@ -16,9 +16,23 @@
     <!-- Overlay -->
     <div class="hero-overlay"></div>
 
-    <!-- Content -->
-    <div class="text-center px-4" style="z-index: 2;">
-        <h1 class="text-4xl md:text-6xl font-serif text-white mb-6 tracking-wider">{{ heroData.title }}</h1>
+    <!-- Content (Hero Logo - Estrutura idêntica à intro para sobreposição perfeita) -->
+    <div class="text-center px-4 flex flex-col items-center justify-center hero-content-wrapper" style="z-index: 2;">
+        <!-- Desktop / Tablet Horizontal Logo -->
+        <div class="hidden md:flex justify-center items-center w-full max-w-[540px] lg:max-w-[660px] hero-logo-box">
+            <img src="assets/content/logo_intro_desktop.png" 
+                 alt="Althair Santo" 
+                 class="w-full h-auto object-contain hero-logo-img">
+        </div>
+
+        <!-- Mobile Vertical Logo -->
+        <div class="flex md:hidden justify-center items-center w-full max-w-[220px] sm:max-w-[260px] hero-logo-box">
+            <img src="assets/content/logo_intro_mobile.png" 
+                 alt="Althair Santo" 
+                 class="w-full h-auto object-contain hero-logo-img">
+        </div>
+
+        <h1 class="sr-only">Althair Santo - Estilista de Alta Costura</h1>
     </div>
 
     <!-- Scroll Arrow -->
