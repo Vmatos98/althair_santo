@@ -19,11 +19,11 @@
 
 /* News Cards */
 .news-card {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .news-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
 
 /* Modal de Leitura */
@@ -80,6 +80,22 @@
   color: #374151;
 }
 
+/* Magazine Reader Styling */
+.magazine-reader-container {
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Cursor de Zoom */
+.cursor-zoom-in {
+  cursor: zoom-in;
+}
+
+.cursor-zoom-out {
+  cursor: zoom-out;
+}
+
 /* Botão Flutuante (Voltar ao topo) */
 .floating-button {
   position: fixed;
@@ -115,4 +131,9 @@
     height: 44px;
     font-size: 16px;
   }
+  
+  .magazine-reader-container img {
+    max-height: 60vh;
+  }
 }
+
