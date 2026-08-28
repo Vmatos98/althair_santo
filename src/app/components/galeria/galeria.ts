@@ -16,18 +16,28 @@ export class Galeria implements OnInit, AfterViewInit {
 
   galeria = [
     {
-      titulo: "London Fashion Week – Coleção Londres",
-      id: "london-fashion-week",
+      titulo: "Londres",
+      id: "londres",
       imagens: [
         "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.34.11.jpg",
-        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.34.26.jpg",
         "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.34.37.jpg",
         "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.34.47.jpg",
         "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.35.02.jpg",
         "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.35.14.jpg",
-        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.35.43.jpg",
         "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.36.21.jpg",
         "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.36.22.jpg"
+      ]
+    },
+    {
+      titulo: "Prêt-à-Porter Paris – Coleção Paris",
+      id: "paris-fashion-week",
+      imagens: [
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.46.19_2.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.46.19_1.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.46.19.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.46.18_2.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.46.18_1.jpg",
+        "https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.46.18.jpg"
       ]
     },
     {
@@ -89,7 +99,9 @@ export class Galeria implements OnInit, AfterViewInit {
   }
 
   private scrollToFragment(fragment: string): void {
-    const element = document.getElementById(fragment);
+    // Suporte a alias se necessário (ex: london-fashion-week -> londres)
+    const targetId = fragment === 'london-fashion-week' ? 'londres' : fragment;
+    const element = document.getElementById(targetId) || document.getElementById(fragment);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }

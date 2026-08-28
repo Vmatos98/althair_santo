@@ -6,22 +6,22 @@
   <div class="relative z-10 pt-28 pb-20">
     <!-- Hero / Header Section -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-      <div class="inline-block px-4 py-1 mb-4 border border-black/20 text-xs uppercase tracking-widest text-gray-700 bg-gray-50/80">
-        Mídia, Reportagens & Reconhecimento
+      <div class="inline-block px-4 py-1 mb-4 border border-black/20 text-xs uppercase tracking-widest text-gray-700 bg-gray-50/80 font-medium">
+        Mídia, Reportagens & Acervo Histórico
       </div>
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900 mb-6 tracking-wider uppercase">
         Notícias & Imprensa
       </h1>
       <div class="w-20 h-0.5 bg-black mx-auto mb-6"></div>
       <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
-        Acompanhe a repercussão, matérias de TV, reportagens em vídeo, desfiles e exposições que marcam a trajetória de Althair Santo e a valorização da renda sergipana no Brasil e no mundo.
+        Acompanhe a repercussão, artigos de revistas especializadas, matérias de TV, reportagens em vídeo, desfiles e exposições que marcam a trajetória de Althair Santo e a valorização da renda sergipana no Brasil e no mundo.
       </p>
 
       <!-- Category Filter Tabs -->
       <div class="flex flex-wrap justify-center items-center gap-2 md:gap-3 mt-10">
         <button *ngFor="let cat of categorias"
                 (click)="setCategoria(cat.id)"
-                class="px-5 py-2.5 text-xs md:text-sm tracking-wider uppercase transition-all duration-300 rounded-sm cursor-pointer border"
+                class="px-4 md:px-5 py-2 md:py-2.5 text-xs md:text-sm tracking-wider uppercase transition-all duration-300 rounded-sm cursor-pointer border"
                 [ngClass]="categoriaAtiva === cat.id ? 'bg-black text-white border-black shadow-md' : 'bg-white/80 text-gray-700 border-gray-200 hover:border-black hover:text-black'">
           {{ cat.nome }}
         </button>
@@ -43,9 +43,12 @@
                    [alt]="noticiaDestaque.titulo"
                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent lg:hidden"></div>
-              <div class="absolute top-4 left-4">
+              <div class="absolute top-4 left-4 flex flex-wrap gap-2">
                 <span class="bg-black text-white text-xs tracking-widest uppercase px-3 py-1.5 font-medium shadow-sm">
                   Destaque Principal
+                </span>
+                <span *ngIf="noticiaDestaque.numeroPaginas" class="bg-white text-black text-xs tracking-wider uppercase px-3 py-1.5 font-semibold shadow-sm">
+                  {{ noticiaDestaque.numeroPaginas }} {{ noticiaDestaque.numeroPaginas === 1 ? 'Página' : 'Páginas' }}
                 </span>
               </div>
             </div>
@@ -92,10 +95,10 @@
       <!-- Section Title for Regular Grid (when displaying category) -->
       <div class="flex items-center justify-between border-b border-gray-200 pb-4 mb-8">
         <h2 class="text-lg md:text-xl font-serif tracking-wider uppercase text-gray-900">
-          {{ categoriaAtiva === 'todas' ? 'Mais Notícias & Reportagens' : 'Artigos: ' + (noticiasFiltradas.length ? noticiasFiltradas[0].categoriaNome : '') }}
+          {{ categoriaAtiva === 'todas' ? 'Acervo de Artigos, Notícias & Reportagens' : (noticiasFiltradas.length ? noticiasFiltradas[0].categoriaNome : 'Matérias') }}
         </h2>
         <span class="text-xs text-gray-500 uppercase tracking-widest font-mono">
-          {{ outrasNoticias.length }} {{ outrasNoticias.length === 1 ? 'matéria' : 'matérias' }}
+          {{ outrasNoticias.length }} {{ outrasNoticias.length === 1 ? 'item' : 'itens' }}
         </span>
       </div>
 
@@ -104,18 +107,24 @@
         <article *ngFor="let noticia of outrasNoticias"
                  class="news-card border border-gray-200 bg-white rounded-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 group overflow-hidden">
           
-          <!-- Top / Image / Video Badge -->
+          <!-- Top / Image / Badges -->
           <div>
-            <div class="relative overflow-hidden aspect-[16/10] bg-gray-100 cursor-pointer"
+            <div class="relative overflow-hidden aspect-[16/11] bg-gray-100 cursor-pointer"
                  (click)="abrirNoticia(noticia)">
               <img [src]="noticia.imagem" 
                    [alt]="noticia.titulo"
                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               
-              <!-- Category Badge -->
-              <div class="absolute top-3 left-3">
+              <!-- Category & Format Badges -->
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
                 <span class="bg-black/90 text-white text-[10px] tracking-wider uppercase px-2.5 py-1">
                   {{ noticia.categoriaNome }}
+                </span>
+                
+                <!-- Multi-Page Badge for Scanned Articles -->
+                <span *ngIf="noticia.numeroPaginas" 
+                      class="bg-white/95 text-black font-semibold text-[10px] tracking-wider uppercase px-2 py-1 shadow-sm border border-black/10">
+                  <i class="far fa-file-alt mr-1"></i>{{ noticia.numeroPaginas }} {{ noticia.numeroPaginas === 1 ? 'Página' : 'Páginas' }}
                 </span>
               </div>
 
@@ -126,14 +135,20 @@
                   <i class="fas fa-play ml-1 text-sm text-black"></i>
                 </div>
               </div>
+
+              <!-- Multi-page preview badge in bottom-right -->
+              <div *ngIf="noticia.paginas && noticia.paginas.length > 1"
+                   class="absolute bottom-2 right-2 bg-black/75 backdrop-blur text-white text-[10px] px-2 py-0.5 rounded-sm">
+                <i class="fas fa-images mr-1"></i>Leitor Interativo
+              </div>
             </div>
 
             <!-- Content Body -->
             <div class="p-6">
               <div class="flex items-center justify-between text-xs text-gray-400 mb-3 tracking-wider">
                 <span><i class="far fa-calendar mr-1"></i>{{ noticia.data }}</span>
-                <span class="truncate max-w-[150px]" [title]="noticia.veiculo">
-                  <i [class]="noticia.videoUrl ? 'fas fa-video mr-1 text-black' : 'fas fa-bookmark mr-1'"></i>{{ noticia.veiculo }}
+                <span class="truncate max-w-[140px]" [title]="noticia.veiculo">
+                  <i [class]="noticia.videoUrl ? 'fas fa-video mr-1 text-black' : (noticia.numeroPaginas ? 'fas fa-newspaper mr-1 text-black' : 'fas fa-bookmark mr-1')"></i>{{ noticia.veiculo }}
                 </span>
               </div>
 
@@ -157,7 +172,7 @@
             </div>
             <button (click)="abrirNoticia(noticia)"
                     class="text-xs font-semibold uppercase tracking-wider text-black hover:text-gray-600 flex items-center gap-1 cursor-pointer transition">
-              <span>{{ noticia.videoUrl ? 'Assistir / Ler' : 'Ler Mais' }}</span>
+              <span>{{ noticia.numeroPaginas ? 'Ver Artigo' : (noticia.videoUrl ? 'Assistir' : 'Ler Mais') }}</span>
               <i class="fas fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
             </button>
           </div>
@@ -169,10 +184,10 @@
       <ng-template #emptyState>
         <div class="text-center py-20 bg-gray-50 border border-dashed border-gray-300 rounded-sm">
           <i class="far fa-newspaper text-4xl text-gray-400 mb-4"></i>
-          <h3 class="text-xl font-serif text-gray-800 mb-2">Nenhuma matéria encontrada</h3>
-          <p class="text-gray-500 text-sm mb-6">Não há notícias cadastradas para esta categoria no momento.</p>
-          <button (click)="setCategoria('todas')" class="border border-black px-6 py-2 text-xs uppercase tracking-wider hover:bg-black hover:text-white transition">
-            Ver todas as matérias
+          <h3 class="text-xl font-serif text-gray-800 mb-2">Nenhum item encontrado</h3>
+          <p class="text-gray-500 text-sm mb-6">Não há publicações cadastradas para esta categoria no momento.</p>
+          <button (click)="setCategoria('todas')" class="border border-black px-6 py-2 text-xs uppercase tracking-wider hover:bg-black hover:text-white transition cursor-pointer">
+            Ver todas as publicações
           </button>
         </div>
       </ng-template>
@@ -180,49 +195,179 @@
     </div>
   </div>
 
-  <!-- News Detail Modal / Reading Drawer -->
+  <!-- News / Article Detail Modal -->
   <div *ngIf="isModalOpen && noticiaSelecionada"
-       class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-10 modal-backdrop">
+       class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-10 modal-backdrop">
     
     <!-- Backdrop Overlay -->
-    <div class="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"
+    <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
          (click)="fecharModal()"></div>
 
     <!-- Modal Content Card -->
-    <div class="relative bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-sm shadow-2xl z-10 modal-container border border-gray-200">
+    <div class="relative bg-white w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-sm shadow-2xl z-10 modal-container border border-gray-200 flex flex-col">
       
-      <!-- Top Close Button Bar -->
-      <div class="sticky top-0 right-0 z-20 bg-white/95 backdrop-blur px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="bg-black text-white text-[11px] tracking-widest uppercase px-3 py-1 font-medium">
+      <!-- Sticky Top Header Bar -->
+      <div class="sticky top-0 right-0 z-30 bg-white/95 backdrop-blur px-4 sm:px-6 py-3.5 border-b border-gray-100 flex items-center justify-between">
+        <div class="flex items-center gap-2 overflow-hidden">
+          <span class="bg-black text-white text-[11px] tracking-widest uppercase px-3 py-1 font-medium whitespace-nowrap">
             {{ noticiaSelecionada.categoriaNome }}
           </span>
-          <span class="text-xs text-gray-500 ml-2">
+          <span *ngIf="noticiaSelecionada.numeroPaginas" class="hidden sm:inline-block bg-gray-100 text-gray-800 text-[11px] uppercase tracking-wider px-2 py-0.5 rounded-sm">
+            {{ noticiaSelecionada.numeroPaginas }} {{ noticiaSelecionada.numeroPaginas === 1 ? 'Página Digitalizada' : 'Páginas Digitalizadas' }}
+          </span>
+          <span class="text-xs text-gray-500 truncate ml-2 hidden md:inline-block">
             <i class="far fa-calendar-alt mr-1"></i>{{ noticiaSelecionada.data }}
           </span>
         </div>
-        <button (click)="fecharModal()"
-                class="w-9 h-9 flex items-center justify-center text-gray-500 hover:text-black hover:bg-gray-100 rounded-full transition cursor-pointer"
-                aria-label="Fechar modal">
-          <i class="fas fa-times text-lg"></i>
-        </button>
+        
+        <div class="flex items-center gap-2">
+          <button (click)="fecharModal()"
+                  class="w-9 h-9 flex items-center justify-center text-gray-500 hover:text-black hover:bg-gray-100 rounded-full transition cursor-pointer"
+                  aria-label="Fechar modal">
+            <i class="fas fa-times text-lg"></i>
+          </button>
+        </div>
       </div>
 
-      <!-- Modal Body -->
-      <div class="p-6 sm:p-10">
+      <!-- Modal Body Content -->
+      <div class="p-4 sm:p-8 lg:p-10">
         
-        <!-- Title & Subtitle -->
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gray-900 leading-tight mb-4">
-          {{ noticiaSelecionada.titulo }}
-        </h2>
+        <!-- Header Info -->
+        <div class="mb-6">
+          <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">
+            <span>{{ noticiaSelecionada.veiculo }}</span> • <span>{{ noticiaSelecionada.data }}</span>
+          </div>
 
-        <p *ngIf="noticiaSelecionada.subtitulo" class="text-base sm:text-lg text-gray-600 font-light leading-relaxed mb-6 italic">
-          {{ noticiaSelecionada.subtitulo }}
-        </p>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gray-900 leading-tight mb-3">
+            {{ noticiaSelecionada.titulo }}
+          </h2>
 
-        <div class="w-16 h-0.5 bg-black mb-8"></div>
+          <p *ngIf="noticiaSelecionada.subtitulo" class="text-base sm:text-lg text-gray-600 font-light leading-relaxed mb-4 italic">
+            {{ noticiaSelecionada.subtitulo }}
+          </p>
 
-        <!-- Embedded Video Player if videoUrl exists -->
+          <div class="w-16 h-0.5 bg-black"></div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- MULTI-PAGE MAGAZINE VIEWER FOR SCANNED ARTICLES -->
+        <!-- ============================================== -->
+        <div *ngIf="noticiaSelecionada.paginas && noticiaSelecionada.paginas.length > 0" class="mb-10 magazine-reader-container">
+          
+          <!-- Reader Controls Toolbar -->
+          <div class="bg-gray-900 text-white px-4 py-2.5 rounded-t-sm flex flex-wrap items-center justify-between gap-3 text-xs tracking-wider uppercase">
+            <div class="flex items-center gap-3">
+              <span class="font-mono text-gray-300 font-semibold">
+                Página {{ paginaAtivaIndex + 1 }} de {{ noticiaSelecionada.paginas.length }}
+              </span>
+              <span class="text-gray-500 hidden sm:inline">|</span>
+              <span class="text-gray-400 hidden sm:inline lowercase text-[11px]">
+                use as setas do teclado ◀ ▶ para navegar
+              </span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <!-- Spread toggle for 2-page articles on larger screens -->
+              <button *ngIf="noticiaSelecionada.paginas.length === 2" 
+                      (click)="alternarSpreadView()"
+                      class="hidden md:inline-flex items-center gap-1.5 px-3 py-1 bg-gray-800 hover:bg-gray-700 text-white rounded text-[11px] cursor-pointer transition">
+                <i class="fas fa-book-open text-[10px]"></i>
+                <span>{{ isSpreadView ? 'Página Única' : 'Página Dupla' }}</span>
+              </button>
+
+              <!-- Zoom Button -->
+              <button (click)="abrirZoom(noticiaSelecionada.paginas[paginaAtivaIndex])"
+                      class="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 hover:bg-white text-white hover:text-black rounded text-[11px] cursor-pointer transition">
+                <i class="fas fa-search-plus text-[10px]"></i>
+                <span>Ampliar</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Main Page Image Display Area -->
+          <div class="relative bg-gray-950/95 border-x border-gray-900 p-2 sm:p-4 flex items-center justify-center min-h-[420px] max-h-[75vh] overflow-hidden group">
+            
+            <!-- Side Navigation Arrows (if more than 1 page and not in spread view) -->
+            <button *ngIf="noticiaSelecionada.paginas.length > 1 && !isSpreadView && paginaAtivaIndex > 0"
+                    (click)="paginaAnterior()"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/75 hover:bg-white text-white hover:text-black flex items-center justify-center shadow-xl transition-all cursor-pointer"
+                    aria-label="Página anterior">
+              <i class="fas fa-chevron-left text-base"></i>
+            </button>
+
+            <button *ngIf="noticiaSelecionada.paginas.length > 1 && !isSpreadView && paginaAtivaIndex < noticiaSelecionada.paginas.length - 1"
+                    (click)="proximaPagina()"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/75 hover:bg-white text-white hover:text-black flex items-center justify-center shadow-xl transition-all cursor-pointer"
+                    aria-label="Próxima página">
+              <i class="fas fa-chevron-right text-base"></i>
+            </button>
+
+            <!-- SINGLE PAGE VIEW -->
+            <div *ngIf="!isSpreadView" class="flex items-center justify-center w-full h-full">
+              <img [src]="noticiaSelecionada.paginas[paginaAtivaIndex]" 
+                   [alt]="noticiaSelecionada.titulo + ' - Página ' + (paginaAtivaIndex + 1)"
+                   (click)="abrirZoom(noticiaSelecionada.paginas[paginaAtivaIndex])"
+                   class="max-h-[68vh] w-auto max-w-full object-contain rounded-sm shadow-2xl cursor-zoom-in hover:brightness-105 transition-all">
+            </div>
+
+            <!-- TWO-PAGE SPREAD VIEW (For 2-page magazines on desktop) -->
+            <div *ngIf="isSpreadView && noticiaSelecionada.paginas.length === 2" 
+                 class="hidden md:grid grid-cols-2 gap-3 w-full max-h-[68vh] items-center justify-center">
+              <div class="flex justify-end h-full">
+                <img [src]="noticiaSelecionada.paginas[0]" 
+                     alt="Página 1" 
+                     (click)="abrirZoom(noticiaSelecionada.paginas[0])"
+                     class="max-h-[65vh] w-auto object-contain rounded-l-sm shadow-2xl cursor-zoom-in">
+              </div>
+              <div class="flex justify-start h-full">
+                <img [src]="noticiaSelecionada.paginas[1]" 
+                     alt="Página 2" 
+                     (click)="abrirZoom(noticiaSelecionada.paginas[1])"
+                     class="max-h-[65vh] w-auto object-contain rounded-r-sm shadow-2xl cursor-zoom-in">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Thumbnail Navigation Bar (when 2 or 4 pages) -->
+          <div *ngIf="noticiaSelecionada.paginas.length > 1" 
+               class="bg-gray-100 p-3 rounded-b-sm border border-t-0 border-gray-200 flex flex-wrap items-center justify-between gap-3">
+            
+            <button (click)="paginaAnterior()"
+                    [disabled]="paginaAtivaIndex === 0"
+                    class="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider border border-gray-300 rounded bg-white text-gray-700 hover:border-black hover:text-black disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition">
+              <i class="fas fa-chevron-left mr-1"></i> Anterior
+            </button>
+
+            <!-- Thumbnails with page numbers -->
+            <div class="flex items-center gap-2 sm:gap-3 overflow-x-auto py-1">
+              <button *ngFor="let pag of noticiaSelecionada.paginas; let idx = index"
+                      (click)="irParaPagina(idx)"
+                      class="relative rounded border-2 transition-all cursor-pointer overflow-hidden p-0.5 bg-white group flex flex-col items-center"
+                      [ngClass]="paginaAtivaIndex === idx ? 'border-black scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'">
+                <img [src]="pag" 
+                     [alt]="'Miniatura Página ' + (idx + 1)"
+                     class="w-10 sm:w-14 h-14 sm:h-20 object-cover object-top rounded-sm">
+                <span class="text-[10px] font-bold font-mono mt-0.5" 
+                      [ngClass]="paginaAtivaIndex === idx ? 'text-black' : 'text-gray-500'">
+                  Pág {{ idx + 1 }}
+                </span>
+              </button>
+            </div>
+
+            <button (click)="proximaPagina()"
+                    [disabled]="paginaAtivaIndex === noticiaSelecionada.paginas.length - 1"
+                    class="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider border border-gray-300 rounded bg-white text-gray-700 hover:border-black hover:text-black disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition">
+              Próxima <i class="fas fa-chevron-right ml-1"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- ============================================== -->
+        <!-- VIDEO PLAYER (IF VIDEO ARTICLE) -->
+        <!-- ============================================== -->
         <div *ngIf="noticiaSelecionada.videoUrl" class="mb-8 overflow-hidden rounded-sm border border-gray-200 shadow-md">
           <div class="relative w-full aspect-video bg-black">
             <iframe 
@@ -240,8 +385,10 @@
           </div>
         </div>
 
-        <!-- Featured Image (if no video or as media banner) -->
-        <div *ngIf="!noticiaSelecionada.videoUrl" class="mb-8 overflow-hidden rounded-sm border border-gray-200">
+        <!-- ============================================== -->
+        <!-- BANNER IMAGE (FOR DIGITAL ARTICLES WITHOUT VIDEO) -->
+        <!-- ============================================== -->
+        <div *ngIf="!noticiaSelecionada.paginas && !noticiaSelecionada.videoUrl" class="mb-8 overflow-hidden rounded-sm border border-gray-200">
           <img [src]="noticiaSelecionada.imagem"
                [alt]="noticiaSelecionada.titulo"
                class="w-full max-h-[440px] object-cover object-center">
@@ -251,7 +398,7 @@
           </div>
         </div>
 
-        <!-- Article Paragraphs -->
+        <!-- Article Prose Paragraphs -->
         <div class="article-prose space-y-5 text-gray-700 text-base sm:text-lg leading-relaxed font-light mb-8">
           <p *ngFor="let p of noticiaSelecionada.paragrafos">
             {{ p }}
@@ -275,14 +422,25 @@
         </div>
 
         <!-- Action / External Link Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
-          <div *ngIf="noticiaSelecionada.linkExterno">
-            <a [href]="noticiaSelecionada.linkExterno.url" 
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-gray-100">
+          <div class="flex flex-wrap gap-3">
+            <a *ngIf="noticiaSelecionada.linkExterno" 
+               [href]="noticiaSelecionada.linkExterno.url" 
                target="_blank" 
                rel="noopener noreferrer"
                class="inline-flex items-center gap-2 border border-black text-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition">
               <span>{{ noticiaSelecionada.linkExterno.label }}</span>
               <i class="fas fa-external-link-alt text-[11px]"></i>
+            </a>
+
+            <!-- Download or Open Scanned Page in High Res -->
+            <a *ngIf="noticiaSelecionada.paginas && noticiaSelecionada.paginas.length > 0"
+               [href]="noticiaSelecionada.paginas[paginaAtivaIndex]"
+               target="_blank"
+               download
+               class="inline-flex items-center gap-2 bg-gray-100 text-gray-800 px-6 py-3 text-xs uppercase tracking-widest hover:bg-gray-200 transition">
+              <i class="fas fa-download text-[11px]"></i>
+              <span>Baixar Página {{ paginaAtivaIndex + 1 }} em Alta Definição</span>
             </a>
           </div>
 
@@ -294,6 +452,25 @@
 
       </div>
 
+    </div>
+  </div>
+
+  <!-- Fullscreen Zoom / Lightbox Modal -->
+  <div *ngIf="isZoomModal" 
+       class="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4 bg-black/95 backdrop-blur-md">
+    
+    <button (click)="fecharZoom()"
+            class="absolute top-4 right-4 z-30 w-11 h-11 rounded-full bg-white/20 hover:bg-white text-white hover:text-black flex items-center justify-center transition cursor-pointer"
+            aria-label="Fechar zoom">
+      <i class="fas fa-times text-xl"></i>
+    </button>
+
+    <div class="relative w-full h-full flex items-center justify-center overflow-auto p-4"
+         (click)="fecharZoom()">
+      <img [src]="imagemZoomUrl" 
+           alt="Visualização em Alta Definição"
+           class="max-w-none max-h-[92vh] object-contain rounded shadow-2xl cursor-zoom-out"
+           (click)="$event.stopPropagation()">
     </div>
   </div>
 
