@@ -4,8 +4,8 @@
     <div class="w-20 h-0.5 bg-black mx-auto mb-4"></div>
     <p class="text-gray-600 max-w-2xl mx-auto mb-12">Descubra as criações e desfiles de Althair Santo, onde a tradição da Renda Irlandesa encontra a vanguarda do design contemporâneo.</p>
 
-    <!-- Grid de Coleções em Destaque -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+    <!-- Grid de Coleções em Destaque (3 Coleções) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
       <!-- Coleção Londres -->
       <div class="text-center cursor-pointer group" (click)="onNavegarParaColecoes()">
         <div class="relative overflow-hidden rounded-sm shadow-md group-hover:shadow-xl transition-shadow duration-300">
@@ -14,7 +14,18 @@
                class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
         </div>
         <h3 class="text-xl font-serif mt-4 mb-1">Londres</h3>
-        <p class="text-sm text-gray-600 px-4">Coleção Londres • Design Autoral</p>
+        <p class="text-sm text-gray-600 px-2">Design Autoral & Sofisticação</p>
+      </div>
+
+      <!-- Prêt-à-Porter Paris -->
+      <div class="text-center cursor-pointer group" (click)="onNavegarParaColecoes()">
+        <div class="relative overflow-hidden rounded-sm shadow-md group-hover:shadow-xl transition-shadow duration-300">
+          <img src="https://res.cloudinary.com/xbovcgmp/image/upload/WhatsApp_Image_2026-08-26_at_17.46.19_2.jpg" 
+               alt="Prêt-à-Porter Paris"
+               class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
+        </div>
+        <h3 class="text-xl font-serif mt-4 mb-1">Prêt-à-Porter Paris</h3>
+        <p class="text-sm text-gray-600 px-2">Projeção Internacional</p>
       </div>
 
       <!-- Brasil Eco Fashion Week 2023 -->
@@ -25,7 +36,7 @@
                class="w-full h-80 object-cover transition duration-500 group-hover:scale-105">
         </div>
         <h3 class="text-xl font-serif mt-4 mb-1">Brasil Eco Fashion Week</h3>
-        <p class="text-sm text-gray-600 px-4">Sustentabilidade & Tradição</p>
+        <p class="text-sm text-gray-600 px-2">Sustentabilidade & Tradição</p>
       </div>
     </div>
 
